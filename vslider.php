@@ -124,6 +124,7 @@ function vslider_head($option) {
 var $jq = jQuery.noConflict(); $jq(document).ready(function() { 
 	$jq('#<?php echo $option; ?>').coinslider({ width: <?php echo $options['width']; ?>, height: <?php echo $options['height']; ?>, spw: <?php echo $options['spw']; ?>, sph: <?php echo $options['sph']; ?>, delay: <?php echo $options['delay']; ?>, sDelay: <?php echo $options['sDelay']; ?>, opacity: <?php echo $options['opacity']; ?>, titleSpeed: <?php echo $options['titleSpeed']; ?>, effect: '<?php echo $options["effect"]; ?>', navigation: <?php echo $options['navigation']; ?>, links : <?php echo $options['links']; ?>, stickynav: <?php echo $options['stickynav']; ?>, hoverPause: <?php echo $options['hoverPause']; ?> }); }); 
 	</script>
+
 <!-- Begin vSlider options -->
 <style type="text/css" media="screen">
 #<?php echo $option; ?>container {
@@ -484,13 +485,13 @@ if ( function_exists('add_theme_support') ) {
 function vslider_defaults() {
 	$default = array(
 	'slideNr' => 3,
-		'width' => 630,
-		'height' => 280,
+		'width' => 600,
+		'height' => 210,
 		'spw' => 7,
 		'sph' => 5,
 		'delay' => 3000,
 		'sDelay' => 30,
-		'opacity' => '0.7',
+		'opacity' => '0.5',
 		'titleSpeed' => 1500,
 		'effect' => '',
 		'navigation' => 'true',
@@ -515,7 +516,7 @@ function vslider_defaults() {
 	'arrstyle' => 'none',
 	'navplace' => '10px 0 10px 100px',
 	'layout' => 'stripe-bottom',
-	'borderWidth' => '5',
+	'borderWidth' => '0',
 	'borderRadius' => '0',
 	'borderColor' => 'FFFFFF',
 	'holdermar' => '10px 10px 10px 10px',
@@ -754,7 +755,7 @@ if($_GET['activate'])
 <table class="widefat" cellspacing="0">
 	<thead>
 	<tr>
-		<th scope="col" id="name" class="manage-column column-name" colspan="5">Table Of vSliders</th>
+		<th scope="col" id="name" class="manage-column column-name" colspan="5">Table Of vSliders Use  <code> [vslider name="vSliderName"] </code> to embed your slider.</th>
 	</tr>
 	<tr style="background: #efefef;">
 		<td style="width: 100px;text-align:center;"> ID </td>
