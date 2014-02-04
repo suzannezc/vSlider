@@ -512,8 +512,8 @@ function vslider_defaults() {
 		'slide2' => WP_PLUGIN_URL.'/vslider/images/slide2.jpg',
 		'slide3' => WP_PLUGIN_URL.'/vslider/images/slide3.jpg',
 	'target' => 'none',
-	'navstyle' => 'none',
-	'arrstyle' => 'none',
+	'navstyle' => 'nav_style4',
+	'arrstyle' => 'arr_style3',
 	'navplace' => '10px 0 10px 100px',
 	'layout' => 'stripe-bottom',
 	'borderWidth' => '0',
@@ -647,9 +647,9 @@ add_action('admin_menu', 'vslider_plugin_admin_menu');
 function vslider_plugin_admin_menu() {
 	add_menu_page('Add vSlider ', 'vSlider', 'publish_posts', 'vslider', 'vslider_main', WP_PLUGIN_URL.'/vslider/images/icon.png');
 	add_submenu_page('vslider','Edit vslider','Edit vSlider', 'publish_posts', 'add-vSlider', 'vslider_admin_page');
- add_submenu_page('vslider','Uninstall vslider','Uninstall vSlider', 'publish_posts', 'uninstall-vSlider', 'vslider_uninstall');
-	add_submenu_page('vslider','vSlider Tutorials ','Tutorials & FAQs', 'publish_posts', 'vslider-tutorials', 'vslider_tutorials_page');
-	add_submenu_page('vslider','VibeThemes Themes and Plugins','Themes & Plugins', 'publish_posts', 'vslider-themes', 'vslider_theme_page');
+	//add_submenu_page('vslider','Uninstall vslider','Uninstall vSlider', 'publish_posts', 'uninstall-vSlider', 'vslider_uninstall');
+	//add_submenu_page('vslider','vSlider Tutorials ','Tutorials & FAQs', 'publish_posts', 'vslider-tutorials', 'vslider_tutorials_page');
+	//add_submenu_page('vslider','VibeThemes Themes and Plugins','Themes & Plugins', 'publish_posts', 'vslider-themes', 'vslider_theme_page');
 	}
 //vSlider main page
 function vslider_main()
@@ -876,7 +876,7 @@ $options = get_option($option);
 	<p><?php _e("Border Width", 'vslider'); ?>: <input type="text" name="<?php echo $option; ?>[borderWidth]" value="<?php echo $options['borderWidth'] ?>" size="3" />px &nbsp;&nbsp;<?php _e("Border Radius", 'vslider'); ?>: <input type="text" name="<?php echo $option; ?>[borderRadius]" value="<?php echo $options['borderRadius'] ?>" size="3" />px</p>
 	<p><?php _e("Border Color", 'vslider'); ?>:<input id="borderColor" type="text" name="<?php echo $option; ?>[borderColor]" value="<?php echo $options['borderColor'] ?>" size="8" />&nbsp;HEX
 	&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/border.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /> </a></p>
-	<p><?php _e("Font family", 'vslider'); ?>:<select name="<?php echo $option; ?>[fontFamily]"><option value="'Trebuchet MS', Helvetica, sans-serif" <?php selected("'Trebuchet MS', Helvetica, sans-serif", $options['fontFamily']); ?>>'Trebuchet MS', Helvetica, sans-serif</option><option value="Arial, Helvetica, sans-serif" <?php selected('Arial, Helvetica, sans-serif', $options['fontFamily']); ?>>Arial, Helvetica, sans-serif</option><option value="Tahoma, Geneva, sans-serif" <?php selected('Tahoma, Geneva, sans-serif', $options['fontFamily']); ?>>Tahoma, Geneva, sans-serif</option><option value="Verdana, Geneva, sans-serif" <?php selected('Verdana, Geneva, sans-serif', $options['fontFamily']); ?>>Verdana, Geneva, sans-serif</option><option value="Georgia, serif" <?php selected('Georgia, serif', $options['fontFamily']); ?>>Georgia, serif</option><option value="'Arial Black', Gadget, sans-serif" <?php selected("'Arial Black', Gadget, sans-serif", $options['fontFamily']); ?>>'Arial Black', Gadget, sans-serif</option><option value="'Bookman Old Style', serif" <?php selected("'Bookman Old Style', serif", $options['fontFamily']); ?>>'Bookman Old Style', serif</option><option value="'Comic Sans MS', cursive" <?php selected("'Comic Sans MS', cursive", $options['fontFamily']); ?>>'Comic Sans MS', cursive</option><option value="'Courier New', Courier, monospace" <?php selected("'Courier New', Courier, monospace", $options['fontFamily']); ?>>'Courier New', Courier, monospace</option><option value="Garamond, serif" <?php selected("Garamond, serif", $options['fontFamily']); ?>>Garamond, serif</option><option value="'Times New Roman', Times, serif" <?php selected("'Times New Roman', Times, serif", $options['fontFamily']); ?>>'Times New Roman', Times, serif</option><option value="Impact, Charcoal, sans-serif" <?php selected("Impact, Charcoal, sans-serif", $options['fontFamily']); ?>>Impact, Charcoal, sans-serif</option><option value="'Lucida Console', Monaco, monospace" <?php selected("'Lucida Console', Monaco, monospace", $options['fontFamily']); ?>>'Lucida Console', Monaco, monospace</option><option value="'MS Sans Serif', Geneva, sans-serif" <?php selected("'MS Sans Serif', Geneva, sans-serif", $options['fontFamily']); ?>>'MS Sans Serif', Geneva, sans-serif</option></select></p>
+	<p><?php _e("Font family", 'vslider'); ?>:<select name="<?php echo $option; ?>[fontFamily]"><option value="Arial, Helvetica, sans-serif" <?php selected('Arial, Helvetica, sans-serif', $options['fontFamily']); ?>>Arial, Helvetica, sans-serif</option><option value="'Trebuchet MS', Helvetica, sans-serif" <?php selected("'Trebuchet MS', Helvetica, sans-serif", $options['fontFamily']); ?>>'Trebuchet MS', Helvetica, sans-serif</option><option value="Tahoma, Geneva, sans-serif" <?php selected('Tahoma, Geneva, sans-serif', $options['fontFamily']); ?>>Tahoma, Geneva, sans-serif</option><option value="Verdana, Geneva, sans-serif" <?php selected('Verdana, Geneva, sans-serif', $options['fontFamily']); ?>>Verdana, Geneva, sans-serif</option><option value="Georgia, serif" <?php selected('Georgia, serif', $options['fontFamily']); ?>>Georgia, serif</option><option value="'Arial Black', Gadget, sans-serif" <?php selected("'Arial Black', Gadget, sans-serif", $options['fontFamily']); ?>>'Arial Black', Gadget, sans-serif</option><option value="'Bookman Old Style', serif" <?php selected("'Bookman Old Style', serif", $options['fontFamily']); ?>>'Bookman Old Style', serif</option><option value="'Comic Sans MS', cursive" <?php selected("'Comic Sans MS', cursive", $options['fontFamily']); ?>>'Comic Sans MS', cursive</option><option value="'Courier New', Courier, monospace" <?php selected("'Courier New', Courier, monospace", $options['fontFamily']); ?>>'Courier New', Courier, monospace</option><option value="Garamond, serif" <?php selected("Garamond, serif", $options['fontFamily']); ?>>Garamond, serif</option><option value="'Times New Roman', Times, serif" <?php selected("'Times New Roman', Times, serif", $options['fontFamily']); ?>>'Times New Roman', Times, serif</option><option value="Impact, Charcoal, sans-serif" <?php selected("Impact, Charcoal, sans-serif", $options['fontFamily']); ?>>Impact, Charcoal, sans-serif</option><option value="'Lucida Console', Monaco, monospace" <?php selected("'Lucida Console', Monaco, monospace", $options['fontFamily']); ?>>'Lucida Console', Monaco, monospace</option><option value="'MS Sans Serif', Geneva, sans-serif" <?php selected("'MS Sans Serif', Geneva, sans-serif", $options['fontFamily']); ?>>'MS Sans Serif', Geneva, sans-serif</option></select></p>
 	<p><?php _e("Title font size", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[titleFont]" value="<?php echo $options['titleFont'] ?>" size="3" />px</p>
 	<p><?php _e("Text font size", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[fontSize]" value="<?php echo $options['fontSize'] ?>" size="3" />px
 	&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/titletext.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /> </a></p>
@@ -918,7 +918,7 @@ $options = get_option($option);
 	<br /><small>Order of Spacing(margin): TOPpx RIGHTpx BOTTOMpx LEFTpx</small>
 	</p>	
 	<p>
-	<?php _e("Enable Auto-Resizing", 'vslider'); ?>: <input type="checkbox" name="<?php echo $option; ?>[timthumb]" value="1" <?php if($options['timthumb']){ echo "checked=CHECKED"; } ?> />
+	<?php _e("Enable Auto-Resizing", 'vslider'); ?>: <input type="checkbox" name="<?php echo $option; ?>[timthumb]" value="0" <?php if($options['timthumb']){ echo "checked=CHECKED"; } ?> />
 	&nbsp;&nbsp;<?php _e("Image Quality", 'vslider'); ?>:<select name="<?php echo $option; ?>[quality]">
 	<option value="40" <?php selected('40', $options['quality']); ?>>40%</option>
 	<option value="50" <?php selected('50', $options['quality']); ?>>50%</option>
