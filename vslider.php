@@ -12,6 +12,7 @@
 */
 
 //	If not defined, define the path to wp-content dir
+
 if (!defined('WP_PLUGIN_URL')) {
 	define('WP_PLUGIN_URL', plugins_url());
 }
@@ -24,11 +25,14 @@ function get_vsliders() {
 	foreach ($vslider_data as $data) { 
 		if($data->active == 1) { 
 			$active='<a href="?page=vslider&deactivate='.$data->id.'" class="button">Deactivate</a>';
+		$disabled=''; 
 		} else {
 			$active='<a href="?page=vslider&activate='.$data->id.'" class="button">Activate</a>';
 			$disabled='disabled="disabled"';
 		}
-		echo '<tr style="height:40px;"><td style="width: 100px;text-align:center;padding: 10px;">'.$data->id.'</td><td style="width: 100px;text-align:center;padding: 10px;" valign="middle">'.$data->option_name.'</td><td style="width: 100px;text-align:center;padding: 10px;"><a href="?page=add-vSlider&edit='.$data->option_name.'" class="button" '.$disabled.'>Edit</a></td><td style="width: 100px;text-align:center;padding: 10px;">'.$active.'</td><td style="width: 100px;text-align:center;padding: 10px;"><a href="?page=vslider&delete='.$data->option_name.'" class="button">Delete</a></td></tr>';
+        if ($data->option_name=="homepage") {$delete=''; $active='';} else {$delete='<a href="?page=vslider&delete='.$data->option_name.'" class="button">Delete</a>';} 
+
+		echo '<tr style="height:40px;"><td style="width: 100px;text-align:center;padding: 10px;">'.$data->id.'</td><td style="width: 100px;text-align:center;padding: 10px;" valign="middle">'.$data->option_name.'</td><td style="width: 100px;text-align:center;padding: 10px;"><a href="?page=add-vSlider&edit='.$data->option_name.'" class="button" '.$disabled.'>Edit</a></td><td style="width: 100px;text-align:center;padding: 10px;">'.$active.'</td><td style="width: 100px;text-align:center;padding: 10px;">'.$delete.'</td></tr>';
 		$num++;
 	}?>
 		<form method="post" action="?page=vslider&add=1">
