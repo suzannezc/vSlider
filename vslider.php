@@ -853,8 +853,8 @@ $options = get_option($option);
 
 	<div class="metabox-holder" style="width: 350px; float:left;">
 		<div class="postbox">
-		<h3><?php _e("General Settings", 'vslider'); ?></h3>
-			<div id="general" class="inside" style="padding: 10px;">
+		<h3><?php _e("General Settings", 'vslider'); ?> <div class="click" id="general" style="float:right;cursor:pointer;"><?php _e("(+/-)", 'vslider'); ?></div></h3>
+			<div id="boxgeneral" class="inside" style="padding: 10px; display: none;">
 
 	<p><?php _e("Image width", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[width]" value="<?php echo $options['width'] ?>" size="3" />px&nbsp;&nbsp;<?php _e("height", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[height]" value="<?php echo $options['height'] ?>" size="3" />px</p>
 	<p><?php _e("Squares per width", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[spw]" value="<?php echo $options['spw'] ?>" size="3" />&nbsp;&nbsp;<?php _e("per height", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[sph]" value="<?php echo $options['sph'] ?>" size="3" /></p>
