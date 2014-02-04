@@ -1,0 +1,5 @@
+﻿vSlider Wishlist
+* remove slide from anywhere in list (auto adjust slide count? ask?)
+* add slides, then save slider to make live
+* prevent slider from wrapping headings into buttons when not on homepage
+* find out where slide data is stored
