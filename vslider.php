@@ -39,7 +39,7 @@ function get_vsliders() {
 		<tr style="height:60px;">
 			<td style="width: 100px;text-align:center;padding: 20px;"><?php echo ($data->id+1); ?></td>
 			<td style="padding: 20px;" colspan="2"><input type="text" id="option_name" name="option_name" size="70" />
-			<font style="font-size:10px;">&nbsp;&nbsp;&nbsp;&nbsp;* Do not use spaces, numbers or special characters in the name.</font>
+			<p style="font-size:11px; color: red;">* Do not use spaces, numbers or special characters in the name.</p>
 			</td>
 			<td style="width: 100px;text-align:center;padding: 20px;" colspan="2"><input type="submit" class="button-primary" style="padding: 10px 30px 10px 30px;" value="Add new vSlider" /></td>
 		</tr>
