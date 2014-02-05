@@ -1004,14 +1004,14 @@ $options = get_option($option);
 			<div class="inside" id="box<?php echo $x; ?>" style="padding: 10px;display:none;">
 
 	<p><?php _e("Image URL", 'vslider'); ?>: <small style="float:right;"><?php _e("upload", 'vslider'); ?></small><br />
-	<input id="slide<?php echo $x; ?>" type="text" name="<?php echo $option; ?>[slide<?php echo $x; ?>]" value="<?php echo $options['slide'.$x.''] ?>" size="62" />
+	<input id="slide<?php echo $x; ?>" type="text" name="<?php echo $option; ?>[slide<?php echo $x; ?>]" value="<?php echo $options['slide'.$x.''] ?>" size="45" />
 	<a href="media-upload.php?type=image&amp;TB_iframe=true" class="thickbox" onclick="current_image='slide<?php echo $x; ?>';"><img src='images/media-button-image.gif' alt='Add an Image' /></a><br />
 	<?php _e("Image links to", 'vslider'); ?>:<br />
-	<input type="text" name="<?php echo $option; ?>[link<?php echo $x; ?>]" value="<?php echo $options['link'.$x.''] ?>" size="62" /><br />
+	<input type="text" name="<?php echo $option; ?>[link<?php echo $x; ?>]" value="<?php echo $options['link'.$x.''] ?>" size="45" /><br />
 				<?php _e("Heading text", 'vslider'); ?>:<br />
-	<input type="text" name="<?php echo $option; ?>[heading<?php echo $x; ?>]" value="<?php echo $options['heading'.$x.''] ?>" size="62" /><br />
+	<input type="text" name="<?php echo $option; ?>[heading<?php echo $x; ?>]" value="<?php echo $options['heading'.$x.''] ?>" size="45" /><br />
 				<?php _e("Description text", 'vslider'); ?>:<br />
-	<textarea name="<?php echo $option; ?>[desc<?php echo $x; ?>]" cols=51 rows=3><?php echo $options['desc'.$x.''] ?></textarea>
+	<textarea name="<?php echo $option; ?>[desc<?php echo $x; ?>]" cols="50" rows="3"><?php echo $options['desc'.$x.''] ?></textarea>
 	</p>
 	<p><input type="submit" class="button" value="<?php _e('Save Settings') ?>" /></p>
 
