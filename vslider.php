@@ -32,7 +32,13 @@ function get_vsliders() {
 		}
         if ($data->option_name=="homepage") {$delete=''; $active='';} else {$delete='<a href="?page=vslider&delete='.$data->option_name.'" class="button">Delete</a>';} 
 
-		echo '<tr style="height:40px;"><td style="width: 100px;text-align:center;padding: 10px;">'.$data->id.'</td><td style="width: 100px;text-align:center;padding: 10px;" valign="middle">'.$data->option_name.'</td><td style="width: 100px;text-align:center;padding: 10px;"><a href="?page=add-vSlider&edit='.$data->option_name.'" class="button" '.$disabled.'>Edit</a></td><td style="width: 100px;text-align:center;padding: 10px;">'.$active.'</td><td style="width: 100px;text-align:center;padding: 10px;">'.$delete.'</td></tr>';
+		echo <<<SLIDERS
+		<tr style="height:40px;">
+			<td style="width: 100px;text-align:center;padding: 10px;">$data->id</td>
+			<td style="width: 100px;text-align:center;padding: 10px;" valign="middle">$data->option_name</td>
+			<td style="width: 100px;text-align:center;padding: 10px;"><a href="?page=add-vSlider&amp;edit=$data->option_name" class="button" $disabled>Edit</a></td><td style="width: 100px;text-align:center;padding: 10px;">$active</td><td style="width: 100px;text-align:center;padding: 10px;">$delete</td>
+		</tr>
+SLIDERS;
 		$num++;
 	}?>
 		<form method="post" action="?page=vslider&add=1">
@@ -55,14 +61,6 @@ if ( $_GET['page'] == 'add-vSlider' ) {
 	add_action('admin_init', 'vslider_admin_scripts');
 	add_action('admin_print_styles', 'vslider_admin_styles');
 }
-if ( $_GET['page'] == 'vslider-tutorials' ) {
-	add_action('admin_init', 'vslider_tutorial_scripts');
-	add_action('admin_print_styles', 'vslider_tutorial_styles');
-}
-if ( $_GET['page'] == 'vslider-themes' ) {
-	add_action('admin_init', 'vslider_theme_scripts');
-	add_action('admin_print_styles', 'vslider_theme_styles');
-}
 if($_POST['uninstallvslider']){
 	vslider_plugin_uninstall();
 }
@@ -82,14 +80,6 @@ function vslider_a_scripts() {
 	wp_register_script ( 'a-js', WP_PLUGIN_URL.'/vslider/js/main.js', array('jquery'));
 	wp_enqueue_script	('a-js' );
 }
-function vslider_tutorial_scripts() {
-	wp_register_script ( 'tutorials-js', WP_PLUGIN_URL.'/vslider/js/tutorials.js', array('jquery'));
-	wp_enqueue_script	('tutorials-js' );
-}	
-function vslider_theme_scripts() {
-	wp_register_script ( 'themes-js', WP_PLUGIN_URL.'/vslider/js/themes.js', array('jquery'));
-	wp_enqueue_script	('themes-js' );
-} 
 
 //Styles to be loaded in the vSlider admin Panel
 function vslider_admin_styles() {
@@ -98,14 +88,6 @@ function vslider_admin_styles() {
 	wp_enqueue_style( 'colorpicker-css');
 	wp_register_style('tooltip-css', WP_PLUGIN_URL.'/vslider/css/tooltip.css');
 	wp_enqueue_style( 'tooltip-css');
-}
-function vslider_tutorial_styles() {
-	wp_register_style('tutorials-css', WP_PLUGIN_URL.'/vslider/css/tutorials.css');
-	wp_enqueue_style( 'tutorials-css');
-}
-function vslider_theme_styles() {
-	wp_register_style('themes-css', WP_PLUGIN_URL.'/vslider/css/themes.css');
-	wp_enqueue_style( 'themes-css');
 }
 
 add_action('wp_print_scripts', 'vslider_head_scripts');
@@ -485,32 +467,32 @@ if ( function_exists('add_theme_support') ) {
 function vslider_defaults() {
 	$default = array(
 	'slideNr' => 3,
-		'width' => 600,
-		'height' => 210,
-		'spw' => 7,
-		'sph' => 5,
-		'delay' => 3000,
-		'sDelay' => 30,
-		'opacity' => '0.5',
-		'titleSpeed' => 1500,
-		'effect' => '',
-		'navigation' => 'true',
+	'width' => 600,
+	'height' => 210,
+	'spw' => 7,
+	'sph' => 5,
+	'delay' => 3000,
+	'sDelay' => 30,
+	'opacity' => '0.5',
+	'titleSpeed' => 1500,
+	'effect' => '',
+	'navigation' => 'true',
 	'stickynav' => 'false',
-		'links' => 'true',
+	'links' => 'true',
 	'buttons' => 'true',
-		'hoverPause' => 'false',
-		'fontFamily' => 'Arial, Helvetica, sans-serif',
-		'titleFont' => 16,
-		'fontSize' => 12,
-		'textColor' => 'FFFFFF',
-		'bgColor' => '222222',
-		'customImg' => 'true',
+	'hoverPause' => 'false',
+	'fontFamily' => 'Arial, Helvetica, sans-serif',
+	'titleFont' => 16,
+	'fontSize' => 12,
+	'textColor' => 'FFFFFF',
+	'bgColor' => '222222',
+	'customImg' => 'true',
 	'catchimage' => 'true',
-		'chars' => 200,
-		'excerpt' => 'true',
-		'slide1' => WP_PLUGIN_URL.'/vslider/images/slide1.jpg',
-		'slide2' => WP_PLUGIN_URL.'/vslider/images/slide2.jpg',
-		'slide3' => WP_PLUGIN_URL.'/vslider/images/slide3.jpg',
+	'chars' => 200,
+	'excerpt' => 'true',
+	'slide1' => WP_PLUGIN_URL.'/vslider/images/slide1.jpg',
+	'slide2' => WP_PLUGIN_URL.'/vslider/images/slide2.jpg',
+	'slide3' => WP_PLUGIN_URL.'/vslider/images/slide3.jpg',
 	'target' => 'none',
 	'navstyle' => 'nav_style4',
 	'arrstyle' => 'arr_style3',
@@ -566,51 +548,44 @@ function vslider_install(){
 function vslider_uninstall(){
 	if($_POST['uninstallvslider']){
 	echo '<div class="wrap"><div id="message" class="updated fade">';
-	echo '<h2> vSlider Successfully Uninstalled </h2></div>';
+	echo '<h2>vSlider Successfully Uninstalled</h2></div>';
 	echo '<h2>'.__('vSlider Uninstall', 'vslider').'</h2>';
-	echo '<h3> vSlider Successfully Uninstalled </h3></p><strong>'.sprintf(__('Deactivate the vSlider from Plugins panel to Finish the Uninstallation.', 'vslider'), $deactivate_url).'</strong></p>';
+	echo '<h3>vSlider Successfully Uninstalled</h3><p><strong>'.sprintf(__('Deactivate the vSlider from Plugins panel to Finish the Uninstallation.', 'vslider'), $deactivate_url).'</strong></p>';
 	echo '</div>';	}else { ?>
+
 <form method="post" action="">
-<div class="wrap">
-	<h2><?php _e('Uninstall vSlider', 'vslider'); ?></h2>
-	<p>
-		<?php _e('Deactivating vSlider plugin does not remove any data that may have been created, such as the slider data and the image links. To completely remove this plugin, you can uninstall it here.', 'vslider'); ?>
-	</p>
-	<p style="color: red">
-		<strong><?php _e('WARNING:', 'vslider'); ?></strong><br />
-		<?php _e('Once uninstalled, this cannot be undone. You should use a Database Backup plugin of WordPress to back up all the data first.', 'vslider'); ?>
-	</p>
-	<p style="color: red">
-		<strong><?php _e('The following WordPress Options/Tables will be DELETED:', 'vslider'); ?></strong><br />
-	</p>
-	<table class="widefat" style="width: 200px;">
-		<thead>
-			<tr>
-	<?php
-					global $wpdb;
-		$table_name = $wpdb->prefix . "vslider"; ?>
+	<div class="wrap">
+		<h2><?php _e('Uninstall vSlider', 'vslider'); ?></h2>
+		<p><?php _e('Deactivating vSlider plugin does not remove any data that may have been created, such as the slider data and the image links. To completely remove this plugin, you can uninstall it here.', 'vslider'); ?></p>
+		<p style="color: red"><strong><?php _e('WARNING:', 'vslider'); ?></strong><br />
+		<?php _e('Once uninstalled, this cannot be undone. You should use a Database Backup plugin of WordPress to back up all the data first.', 'vslider'); ?></p>
+		<p style="color: red"><strong><?php _e('The following WordPress Options/Tables will be DELETED:', 'vslider'); ?></strong></p>
+
+		<table class="widefat" style="width: 200px;">
+			<thead>
+			<tr><?php global $wpdb;
+				$table_name = $wpdb->prefix . "vslider"; ?>
 				<th><?php _e('Table: '.$table_name, 'vslider'); ?></th>
 			</tr>
-		</thead>
-		<tr>
-			<td valign="top" class="alternate">
-				<ol>
-				<?php
- $vslider_data = $wpdb->get_results("SELECT option_name FROM $table_name ORDER BY id");
-	foreach ($vslider_data as $data) {
-	echo '<li>'.$data->option_name.'</li>';
-	}
-				?>
-				</ol>
-			</td>
-		</tr>
-	</table>
-	<p style="text-align: center;">
-		<?php _e('Do you really want to uninstall vSlider?', 'vslider'); ?><br /><br />
+			</thead>
+			<tr>
+				<td valign="top" class="alternate">
+					<ol>
+					<?php
+					$vslider_data = $wpdb->get_results("SELECT option_name FROM $table_name ORDER BY id");
+					foreach ($vslider_data as $data) {
+					echo '<li>'.$data->option_name.'</li>';
+					}
+					?>
+					</ol>
+				</td>
+			</tr>
+		</table>
+
+		<p style="text-align: center;"><?php _e('Do you really want to uninstall vSlider?', 'vslider'); ?><br /><br />
 		<input type="checkbox" name="uninstall_vslider" value="yes" />&nbsp;<?php _e('Yes', 'vslider'); ?><br /><br />
-		<input type="submit" name="uninstallvslider" value="<?php _e('UNINSTALL vSlider', 'vslider'); ?>" class="button-primary" onclick="return confirm('<?php _e('You Are About To Uninstall vSlider From WordPress.\nThis Action Is Not Reversible.\n\n Choose [Cancel] To Stop, [OK] To Uninstall.', 'vslider'); ?>')" />
-	</p>
-</div>
+		<input type="submit" name="uninstallvslider" value="<?php _e('UNINSTALL vSlider', 'vslider'); ?>" class="button-primary" onclick="return confirm('<?php _e('You Are About To Uninstall vSlider From WordPress.\nThis Action Is Not Reversible.\n\n Choose [Cancel] To Stop, [OK] To Uninstall.', 'vslider'); ?>')" /></p>
+	</div>
 </form>
 	<?php	
 	}
@@ -648,187 +623,118 @@ function vslider_plugin_admin_menu() {
 	add_menu_page('Add vSlider ', 'vSlider', 'publish_posts', 'vslider', 'vslider_main', WP_PLUGIN_URL.'/vslider/images/icon.png');
 	add_submenu_page('vslider','Edit vslider','Edit vSlider', 'publish_posts', 'add-vSlider', 'vslider_admin_page');
 	//add_submenu_page('vslider','Uninstall vslider','Uninstall vSlider', 'publish_posts', 'uninstall-vSlider', 'vslider_uninstall');
-	//add_submenu_page('vslider','vSlider Tutorials ','Tutorials & FAQs', 'publish_posts', 'vslider-tutorials', 'vslider_tutorials_page');
-	//add_submenu_page('vslider','VibeThemes Themes and Plugins','Themes & Plugins', 'publish_posts', 'vslider-themes', 'vslider_theme_page');
 	}
 //vSlider main page
 function vslider_main()
 {
 	?>
-	<div class="wrap" style="width:820px;"><div id="icon-options-general" class="icon32"><br /></div>
-	<h2>vSlider 4.1.2 Settings</h2>
-	<div class="metabox-holder" style="width: 820px; float:left;">
-	<small>Welcome to vSlider 4.1.2</small>
- <div class="inside">
- <br />
- </div>
- </div>
-<?php
+	<div class="wrap" style="width:820px;">
+		<div id="icon-options-general" class="icon32"><br /></div>
+		<h2>vSlider 4.1.2 Settings</h2>
+		<div class="metabox-holder" style="width: 820px; float:left;">
+			<small>Welcome to vSlider 4.1.2</small>
+			<div class="inside"><br /></div>
+		</div>
+
+ <?php
 //vSlider Functions
 	
 if($_GET['add'])
 {
 	$option=$_POST['option_name'];
-	if(!get_option($_POST['option_name']))
-	{
- if($option){
-	$option = preg_replace('/[^a-z0-9\s]/i', '', $option);	
-	$option = str_replace(" ", "_", $option);
-	global $wpdb;
-	$table_name = $wpdb->prefix . "vslider"; 
- $options = get_option($option);
-	if($options)
-	{
-	$v_message= 'Unable to Add vSlider,	different name';
-	}else{
-	$sql = "INSERT INTO " . $table_name . " values ('','".$option."','1');";
-	if ($wpdb->query( $sql )){
-	add_option($option, vslider_defaults());
-	$v_message= ' vSlider successfully added';
-	}
-	else{
-	$v_message= 'Unable to Add vSlider, can not insert vSlider';
-	}
-	};
-	}else{
-	$v_message= ' Unable to Add vSlider';
-	}
-	}else{
-	$v_message= ' Unable to Add vSlider, try a different name';
+	if(!get_option($_POST['option_name'])) {
+		if($option){
+			$option = preg_replace('/[^a-z0-9\s]/i', '', $option);	
+			$option = str_replace(" ", "_", $option);
+			global $wpdb;
+			$table_name = $wpdb->prefix . "vslider"; 
+			$options = get_option($option);
+	
+			if($options) { // if the name already exists
+				$v_message= 'Unable to Add vSlider,	different name';
+			} else { // if the name doesn't exist, create it
+				$sql = "INSERT INTO " . $table_name . " values ('','".$option."','1');";
+		
+				if ($wpdb->query( $sql )){
+					add_option($option, vslider_defaults());
+					$v_message= ' vSlider successfully added';
+				} else {
+					$v_message= 'Unable to Add vSlider, can not insert vSlider';
+				}
+			}
+		} else {
+			$v_message= ' Unable to Add vSlider';
+		}
+	} else {
+		$v_message= ' Unable to Add vSlider, try a different name';
 	}
 	?>
-<div class="updated" id="message"><p><strong>
-	<?php echo $v_message; ?>
-</strong></p></div>
+
+<div class="updated" id="message"><p><strong><?php echo $v_message; ?></strong></p></div>
+
 <?php
-	}
-if($_POST['link'])
-{ 
-	update_option( 'vslider_support', 1 );
 }
-elseif($_POST['removelink'])
-	{
-	update_option( 'vslider_support', 0 );
-	}
-if($_GET['delete'])
-{
+
+if($_GET['delete']) {
 	$option=$_GET['delete'];
 	delete_option($option);
 	global $wpdb;
 	$table_name = $wpdb->prefix . "vslider"; 
 	$sql = "DELETE FROM " . $table_name . " WHERE option_name='".$option."';";
-		$wpdb->query( $sql );
+	$wpdb->query( $sql );
 ?>
-<div class="updated" id="message">
-	<p><strong>vSlider Deleted</strong></p>
-</div>
+<div class="updated" id="message"><p><strong>vSlider Deleted</strong></p></div>
 <?php
 }
 
-if($_GET['deactivate'])
-{
+if($_GET['deactivate']) {
 	$id=$_GET['deactivate'];
 	global $wpdb;
 	$table_name = $wpdb->prefix . "vslider"; 
 	$sql = "UPDATE " . $table_name . " SET active='0' WHERE id='".$id."';";
 		$wpdb->query( $sql );
 	?>
-<div class="updated" id="message">
-	<p><strong>vSlider Deactivated</strong></p>
-</div>
+<div class="updated" id="message"><p><strong>vSlider Deactivated</strong></p></div>
 <?php
 }
-if($_GET['activate'])
-{
+
+if($_GET['activate']) {
 	$id=$_GET['activate'];
 	global $wpdb;
 	$table_name = $wpdb->prefix . "vslider"; 
 	$sql = "UPDATE " . $table_name . " SET active='1' WHERE id='".$id."';";
-		$wpdb->query( $sql );
+	$wpdb->query( $sql );
 	?>
-<div class="updated" id="message">
-	<p><strong>vSlider Activated</strong></p>
-</div>
+<div class="updated" id="message"><p><strong>vSlider Activated</strong></p></div>
 <?php
 }
 ?>
-<table class="widefat" cellspacing="0">
-	<thead>
-	<tr>
-		<th scope="col" id="name" class="manage-column column-name" colspan="5">Table Of vSliders Use  <code> [vslider name="vSliderName"] </code> to embed your slider.</th>
-	</tr>
-	<tr style="background: #efefef;">
-		<td style="width: 100px;text-align:center;"> ID </td>
-		<td style="width: 100px;text-align:center;"> vSlider Name </td>
-		<td style="width: 100px;text-align:center;"> Edit </td>
-		<td style="width: 100px;text-align:center;"> Active </td>
-		<td style="width: 100px;text-align:center;"> Delete </td>
-	</tr>
-	</thead>
-	<tbody>
-	<?php
-	get_vsliders();
- ?>
-	</tbody>
-	<tfoot style="display: none;">
-	<tr>
-		<th scope="col"	class="manage-column column-name" colspan="3">
-	<?php 
-	if(get_option('vslider_support') == 1 ){
-	_e('Thank You for Supporting Us! ');
-	echo '<form method="post" style="float: right;margin-right: 250px;" action="?page=vslider"><input type="submit" style="padding: 3px 10px 3px 10px;" name="removelink" class="button" value="Remove Link" /></form>';
-	}
-	else{
- _e('Support development'); ?>: 
-	<select id="vsliderdonate" onchange="support(this);">
-	<option value="link" selected="<?php echo $link; ?>"><?php _e('OK, this will place a link to author in footer.'); ?></option>
-	<option value="donate" selected="<?php echo $donate; ?>"><?php _e('OK, I would prefer to donate some money.'); ?></option>
-	<option value="nohelp" selected="selected"><?php _e('I do not think it\'s worth supporting it.'); ?></option>
-	</select>
-	<div id="vsliderdonatebox" style="display:none;">
-	<?php _e('Donate Amount'); ?>:
-	<small>
-	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=99fusion%40gmail.com&item_name=vSlider Donation&no_note=1&tax=0&amount=19&currency_code=USD" target="_blank">$19 USD</a> |
-	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=99fusion%40gmail.com&item_name=vSlider Donation&no_note=1&tax=0&amount=9&currency_code=USD" target="_blank">$9 USD</a> |
-	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=99fusion%40gmail.com&item_name=vSlider Donation&no_note=1&tax=0&amount=6&currency_code=USD" target="_blank">$6 USD</a> |
-	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=99fusion%40gmail.com&item_name=vSlider Donation&no_note=1&tax=0&amount=3&currency_code=USD" target="_blank">$3 USD</a>
-	</small></div>
-	<div id="vsliderlink" style="display:none;margin:5px 2px 2px 2px">
-	<?php _e('Confirm text link in the Footer'); ?> : <form method="post" style="float: right;margin-right: 250px;" action="?page=vslider"><input type="submit" style="padding: 3px 10px 3px 10px;" class="button-primary" name="link" value="Add Link" /></form>
-	</div>
-	<?php
-	}
-	?>
-		</th>
 
-		<th scope="col"	class="manage-column column-name" colspan="2"><small><?php _e('Stay Connected '); ?>:</small>&nbsp;
-			<a href="http://twitter.com/#!/vibethemes/" target="_blank"><img src="<?php echo WP_CONTENT_URL."/plugins/vslider/images/twitter.gif"; ?>" /></a>
-			&nbsp;<a href="http://www.facebook.com/vibethemes/" target="_blank"><img src="<?php echo WP_CONTENT_URL."/plugins/vslider/images/facebook.png"; ?>" /></a>
-			&nbsp;<a href="http://www.vibethemes.com/forum/" target="_blank" title="VibeThemes Forums"><img src="<?php echo WP_CONTENT_URL."/plugins/vslider/images/vibeforums.png"; ?>" /></a>
-		</th>
-			</tr>
-	</tfoot>
+	<table class="widefat" cellspacing="0">
+		<thead>
+		<tr>
+			<th scope="col" id="name" class="manage-column column-name" colspan="5">Table Of vSliders <strong>Use <code>[vslider name="vSliderName"]</code> to embed your slider.</strong></th>
+		</tr>
+		<tr style="background: #efefef;">
+			<td style="width: 100px;text-align:center;">ID</td>
+			<td style="width: 100px;text-align:center;">vSlider Name</td>
+			<td style="width: 100px;text-align:center;">Edit</td>
+			<td style="width: 100px;text-align:center;">Active</td>
+			<td style="width: 100px;text-align:center;">Delete</td>
+		</tr>
+		</thead>
+		<tbody>
+		
+		<?php
+		get_vsliders();
+		?>
+		
+		</tbody>
 	</table>
-	</div>
-	<?php
-}
-// GENERATE THEME SHOWCASE PAGE
-function vslider_theme_page() { ?>
-	<div class="wrap">
-		<div id="icon-themes" class="icon32"><br /></div>
-		<h2>vSlider Themes Page</h2>
-		<div id="themes"></div>
-	</div>
-<?php }
+</div> <?php // closes div.wrap ?>
 
-// GENERATE THE TUTORIAL PAGE
-function vslider_tutorials_page() { ?>
-	<div class="wrap">
-		<div id="icon-users" class="icon32"><br /></div>
-		<h2>vSlider Tutorials &amp; FAQs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="button" href="#">Expand All</a></h2>
-		<div id="tutorials"></div>
-	</div>
-<?php }
+<?php
+} // end function vslider_main
 
 function vslider_admin_page() { 
 	global $message; 
@@ -998,7 +904,7 @@ $options = get_option($option);
 
 	<?php $slides = $options['slideNr'] + 1; ?>
 	<?php for($x=1; $x<$slides; $x++){ ?>
-	<div class="metabox-holder" style="width: 450px;float:right;margin-bottom:-10px;">
+	<div class="metabox-holder" style="width:450px;float:right;margin-bottom:-10px;">
 		<div class="postbox">
 		<h3><?php _e("Custom Image", 'vslider'); ?> <?php echo $x; ?><div class="click" id="<?php echo $x; ?>" style="float:right;cursor:pointer;"><?php _e("(+/-)", 'vslider'); ?></div></h3>
 			<div class="inside" id="box<?php echo $x; ?>" style="padding: 10px;display:none;">
