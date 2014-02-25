@@ -624,6 +624,7 @@ if (isset($_POST['vslider-reset'])) {
 		$option=$_GET['edit'];
 		update_option($option, vslider_defaults());
 		$message = '<div class="updated" id="message"><p><strong>Settings Reset to Default</strong></p></div>';
+	}
 }
 
 // Updated message
