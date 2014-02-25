@@ -1074,12 +1074,6 @@ function vslider($option='vslider_options'){
 	}//END-FOR
 }//END FUNCTION VSLIDER
 
-function vSlider_link() { ?>
-<noscript><a href="http://www.vibethemes.com/" target="_blank" title="wordpress themes">Vibe Themes</a></noscript>
-<?php }
-if(get_option('vslider_support')==1) //Asking USER EXPLICITLY TO SUPPORT VSLIDER not the DEFAULT OPTION
-{add_action('wp_footer', 'vSlider_link');}
-
 // Add vSlider short code	use vslider as	[vslider name='vslider_options']
 function vslider_short_code($atts) {
 	ob_start();
