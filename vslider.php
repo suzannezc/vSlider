@@ -654,7 +654,6 @@ function vslider_main()
 		<div id="icon-options-general" class="icon32"><br /></div>
 		<h2>vSlider 4.1.2 Settings</h2>
 		<div class="metabox-holder" style="width: 820px; float:left;">
-			<small>Welcome to vSlider 4.1.2</small>
 			<div class="inside"><br /></div>
 		</div>
 
