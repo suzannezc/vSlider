@@ -647,8 +647,7 @@ function vslider_plugin_admin_menu() {
 	}
 	
 //vSlider main page
-function vslider_main()
-{
+function vslider_main() {
 	?>
 	<div class="wrap" style="width:820px;">
 		<div id="icon-options-general" class="icon32"><br /></div>
@@ -658,11 +657,11 @@ function vslider_main()
 		</div>
 
  <?php
-//vSlider Functions
-	
+
+ //vSlider Functions	
 if (isset($_GET['add'])) {
 	$option = $_POST['option_name'];
-	if (!get_option($_POST['option_name'])) {
+	if (!get_option($option)) {
 		if($option) {
 			$option = preg_replace('/[^a-z0-9\s]/i', '', $option);	
 			$option = str_replace(" ", "_", $option);
@@ -671,7 +670,7 @@ if (isset($_GET['add'])) {
 			$options = get_option($option);
 	
 			if($options) { // if the name already exists
-				$v_message= 'Unable to Add vSlider,	different name';
+				$v_message= 'Unable to Add vSlider,	this name is in use';
 			} else { // if the name doesn't exist, create it
 				$sql = "INSERT INTO " . $table_name . " values ('','".$option."','1');";
 		
@@ -743,6 +742,7 @@ if (isset($_GET['activate'])) {
 			<td style="width: 100px;text-align:center;">Delete</td>
 		</tr>
 		</thead>
+
 		<tbody>
 		
 		<?php
@@ -758,26 +758,23 @@ if (isset($_GET['activate'])) {
 
 function vslider_admin_page() { 
 	global $message; 
-	$option=$_GET['edit'];
+	if(isset($_GET["edit"])){
+		$option = $_GET['edit'];
+	} else {
+		$option = 'vslider_options';
+	}
 	?>
 	<div class="wrap" style="width:820px;"><div id="icon-options-general" class="icon32"><br /></div>
 	<?php echo $message; ?>
 
-	<?php 
-	if($_GET["edit"]){
-		$option=$_GET['edit'];
-	} else {
-		$option='vslider_options';
-	}
-?>
+	<h2><?php _e("vSlider 4.1.2 Edit Options Page [ ".$option." ]"); ?></h2>
 
-<h2><?php _e("vSlider 4.1.2 Edit Options Page [ ".$option." ]"); ?></h2>
+	<form method="post" action="options.php">
 
-<form method="post" action="options.php">
-<?php 
-wp_nonce_field('update-options'); 
-$options = get_option($option); 
-?>
+	<?php // get the slider details from the wp_options database
+	wp_nonce_field('update-options'); 
+	$options = get_option($option); 
+	?>
 
 	<div class="metabox-holder" style="width: 350px; float:left;">
 		<div class="postbox">
@@ -866,7 +863,7 @@ $options = get_option($option);
 	&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/layout.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /> </a>
 	</p> 
 	<p>
-	<?php _e("Container Margin", 'vslider'); ?>: <input type="text" name="<?php echo $option; ?>[holdermar]" size="30" id="holdermar"	value="<?php echo $options['holdermar']; ?>"/>
+	<?php _e("Container Margin", 'vslider'); ?>: <input type="text" name="<?php echo $option; ?>[holdermar]" size="30" id="holdermar" value="<?php echo $options['holdermar']; ?>"/>
 	&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/cntnerspcing.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /></a>
 	<br /><small>Order of Spacing(margin): TOPpx RIGHTpx BOTTOMpx LEFTpx</small>
 	</p> 
@@ -994,13 +991,16 @@ function vslider_limitpost ($max_char, $more_link_text = '(more...)', $stripteas
 // VSLIDER
 function vslider($option='vslider_options'){ 
 	$options = get_option($option);
-	if(!$option){ $option='vslider_options';$options = get_option($option); }
+	if (!$option) { 
+		$option='vslider_options';
+		$options = get_option($option);
+	}
 	global $wpdb;$num=1;
 	$table_name = $wpdb->prefix . "vslider"; 
 	$vslider_data = $wpdb->get_results("SELECT active FROM $table_name WHERE option_name='".$option."'");
 	foreach ($vslider_data as $data) { 
-	if($data->active == 1)
-	{	vslider_head($option);
+	if($data->active == 1) {
+		vslider_head($option);
 	?>
 	<div id="<?php echo $option.'container'; ?>">
 	<?php
