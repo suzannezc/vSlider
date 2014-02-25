@@ -618,17 +618,22 @@ function vslider_plugin_uninstall() {
 }
 
 // Reset to defaults
-if ($_POST['vslider-reset'] == 1) { 
-	$option=$_GET['edit'];
-	update_option($option, vslider_defaults());
-	$message = '<div class="updated" id="message"><p><strong>Settings Reset to Default</strong></p></div>';
+if (isset($_POST['vslider-reset'])) {
+	$vslider_reset = $_POST['vslider-reset']
+	if ($vslider_reset == 1) {
+		$option=$_GET['edit'];
+		update_option($option, vslider_defaults());
+		$message = '<div class="updated" id="message"><p><strong>Settings Reset to Default</strong></p></div>';
 }
 
 // Updated message
-if ($_GET['updated'] == 'true') {
-	$message = '<div class="updated" id="message"><p><strong>Settings Saved</strong></p></div>';
-	$variable = $_POST['option01'];
-	update_option('my-plugin-options', $variable);
+if (isset($_GET['updated'])) {
+	$vslider_updated = $_GET['updated'];
+	if ($vslider_updated == 'true') {
+		$message = '<div class="updated" id="message"><p><strong>Settings Saved</strong></p></div>';
+		$variable = $_POST['option01'];
+		update_option('my-plugin-options', $variable);
+	}
 }
 
 // Hook for adding admin menus
@@ -655,9 +660,9 @@ function vslider_main()
  <?php
 //vSlider Functions
 	
-if($_GET['add']) {
-	$option=$_POST['option_name'];
-	if(!get_option($_POST['option_name'])) {
+if (isset($_GET['add'])) {
+	$option = $_POST['option_name'];
+	if (!get_option($_POST['option_name'])) {
 		if($option) {
 			$option = preg_replace('/[^a-z0-9\s]/i', '', $option);	
 			$option = str_replace(" ", "_", $option);
@@ -683,15 +688,15 @@ if($_GET['add']) {
 	} else {
 		$v_message= ' Unable to Add vSlider, try a different name';
 	}
-	?>
+?>
 
 <div class="updated" id="message"><p><strong><?php echo $v_message; ?></strong></p></div>
 
 <?php
 }
 
-if($_GET['delete']) {
-	$option=$_GET['delete'];
+if (isset($_GET['delete'])) {
+	$option = $_GET['delete'];
 	delete_option($option);
 	global $wpdb;
 	$table_name = $wpdb->prefix . "vslider"; 
@@ -702,8 +707,8 @@ if($_GET['delete']) {
 <?php
 }
 
-if($_GET['deactivate']) {
-	$id=$_GET['deactivate'];
+if (isset($_GET['deactivate'])) {
+	$id = $_GET['deactivate'];
 	global $wpdb;
 	$table_name = $wpdb->prefix . "vslider"; 
 	$sql = "UPDATE " . $table_name . " SET active='0' WHERE id='".$id."';";
@@ -713,8 +718,8 @@ if($_GET['deactivate']) {
 <?php
 }
 
-if($_GET['activate']) {
-	$id=$_GET['activate'];
+if (isset($_GET['activate'])) {
+	$id = $_GET['activate'];
 	global $wpdb;
 	$table_name = $wpdb->prefix . "vslider"; 
 	$sql = "UPDATE " . $table_name . " SET active='1' WHERE id='".$id."';";
