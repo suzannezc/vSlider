@@ -619,7 +619,7 @@ function vslider_plugin_uninstall() {
 
 // Reset to defaults
 if (isset($_POST['vslider-reset'])) {
-	$vslider_reset = $_POST['vslider-reset']
+	$vslider_reset = $_POST['vslider-reset'];
 	if ($vslider_reset == 1) {
 		$option=$_GET['edit'];
 		update_option($option, vslider_defaults());
