@@ -782,143 +782,164 @@ function vslider_admin_page() {
 		<div class="postbox">
 		<h3><?php _e("General Settings", 'vslider'); ?> <div class="click" id="general" style="float:right;cursor:pointer;"><?php _e("(+/-)", 'vslider'); ?></div></h3>
 			<div id="boxgeneral" class="inside" style="padding: 10px; display: none;">
-
-	<p><?php _e("Image width", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[width]" value="<?php echo $options['width'] ?>" size="3" />px&nbsp;&nbsp;<?php _e("height", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[height]" value="<?php echo $options['height'] ?>" size="3" />px</p>
-	<p><?php _e("Squares per width", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[spw]" value="<?php echo $options['spw'] ?>" size="3" />&nbsp;&nbsp;<?php _e("per height", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[sph]" value="<?php echo $options['sph'] ?>" size="3" /></p>
-	<p><?php _e("Delay between images", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[delay]" value="<?php echo $options['delay'] ?>" size="3" />&nbsp;in ms</p>
-	<p><?php _e("Delay between squares", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[sDelay]" value="<?php echo $options['sDelay'] ?>" size="3" />&nbsp;in ms</p>
-	<p><?php _e("Opacity of title and navigation", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[opacity]" value="<?php echo $options['opacity'] ?>" size="3" /></p>
-	<p><?php _e("Speed of title appearance", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[titleSpeed]" value="<?php echo $options['titleSpeed'] ?>" size="3" />&nbsp;in ms</p>
-	<p><?php _e("Effect", 'vslider'); ?>:<select name="<?php echo $option; ?>[effect]"><option value="" <?php selected('', $options['effect']); ?>>all combined</option><option value="random" <?php selected('random', $options['effect']); ?>>Random</option><option value="swirl" <?php selected('swirl', $options['effect']); ?>>Swirl</option><option value="rain" <?php selected('rain', $options['effect']); ?>>rain</option><option value="fade" <?php selected('fade', $options['effect']); ?>>Fade</option><option value="vertical" <?php selected('vertical', $options['effect']); ?>>Curtain</option><option value="altvertical" <?php selected('altvertical', $options['effect']); ?>>Alternate Curtain</option><option value="horizontal" <?php selected('horizontal', $options['effect']); ?>>Winding</option><option value="althorizontal" <?php selected('althorizontal', $options['effect']); ?>>Alternate Winding</option><option value="diagonal" <?php selected('diagonal', $options['effect']); ?>>Diagonal</option></select>
-	&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/vslider-effects.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /> </a> 
-	</p>
-	<p><?php _e("Show navigation buttons", 'vslider'); ?>:<select name="<?php echo $option; ?>[navigation]"><option value="true" <?php selected('true', $options['navigation']); ?>>Yes</option><option value="false" <?php selected('false', $options['navigation']); ?>>No</option></select>
-	&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/navigationbuttons.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /> </a>
-	</p>
-	<p><?php _e("Sticky navigation buttons", 'vslider'); ?>:<select name="<?php echo $option; ?>[stickynav]"><option value="true" <?php selected('true', $options['stickynav']); ?>>Yes</option><option value="false" <?php selected('false', $options['stickynav']); ?>>No</option></select>
-	<p><?php _e("Show images as links ", 'vslider'); ?>:<select name="<?php echo $option; ?>[links]"><option value="true" <?php selected('true', $options['links']); ?>>Yes</option><option value="false" <?php selected('false', $options['links']); ?>>No</option></select></p>
-	<p><?php _e("Show image buttons ", 'vslider'); ?>:<select name="<?php echo $option; ?>[buttons]"><option value="true" <?php selected('true', $options['buttons']); ?>>Yes</option><option value="false" <?php selected('false', $options['buttons']); ?>>No</option></select>
-	&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/imagebuttons.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /> </a></p>
-	<p><?php _e("Pause on mouse hover", 'vslider'); ?>:<select name="<?php echo $option; ?>[hoverPause]"><option value="true" <?php selected('true', $options['hoverPause']); ?>>Yes</option><option value="0" <?php selected('0', $options['hoverPause']); ?>>No</option></select></p>
-	<p><?php _e("Border Width", 'vslider'); ?>: <input type="text" name="<?php echo $option; ?>[borderWidth]" value="<?php echo $options['borderWidth'] ?>" size="3" />px &nbsp;&nbsp;<?php _e("Border Radius", 'vslider'); ?>: <input type="text" name="<?php echo $option; ?>[borderRadius]" value="<?php echo $options['borderRadius'] ?>" size="3" />px</p>
-	<p><?php _e("Border Color", 'vslider'); ?>:<input id="borderColor" type="text" name="<?php echo $option; ?>[borderColor]" value="<?php echo $options['borderColor'] ?>" size="8" />&nbsp;HEX
-	&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/border.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /> </a></p>
-	<p><?php _e("Font family", 'vslider'); ?>:<select name="<?php echo $option; ?>[fontFamily]"><option value="Arial, Helvetica, sans-serif" <?php selected('Arial, Helvetica, sans-serif', $options['fontFamily']); ?>>Arial, Helvetica, sans-serif</option><option value="'Trebuchet MS', Helvetica, sans-serif" <?php selected("'Trebuchet MS', Helvetica, sans-serif", $options['fontFamily']); ?>>'Trebuchet MS', Helvetica, sans-serif</option><option value="Tahoma, Geneva, sans-serif" <?php selected('Tahoma, Geneva, sans-serif', $options['fontFamily']); ?>>Tahoma, Geneva, sans-serif</option><option value="Verdana, Geneva, sans-serif" <?php selected('Verdana, Geneva, sans-serif', $options['fontFamily']); ?>>Verdana, Geneva, sans-serif</option><option value="Georgia, serif" <?php selected('Georgia, serif', $options['fontFamily']); ?>>Georgia, serif</option><option value="'Arial Black', Gadget, sans-serif" <?php selected("'Arial Black', Gadget, sans-serif", $options['fontFamily']); ?>>'Arial Black', Gadget, sans-serif</option><option value="'Bookman Old Style', serif" <?php selected("'Bookman Old Style', serif", $options['fontFamily']); ?>>'Bookman Old Style', serif</option><option value="'Comic Sans MS', cursive" <?php selected("'Comic Sans MS', cursive", $options['fontFamily']); ?>>'Comic Sans MS', cursive</option><option value="'Courier New', Courier, monospace" <?php selected("'Courier New', Courier, monospace", $options['fontFamily']); ?>>'Courier New', Courier, monospace</option><option value="Garamond, serif" <?php selected("Garamond, serif", $options['fontFamily']); ?>>Garamond, serif</option><option value="'Times New Roman', Times, serif" <?php selected("'Times New Roman', Times, serif", $options['fontFamily']); ?>>'Times New Roman', Times, serif</option><option value="Impact, Charcoal, sans-serif" <?php selected("Impact, Charcoal, sans-serif", $options['fontFamily']); ?>>Impact, Charcoal, sans-serif</option><option value="'Lucida Console', Monaco, monospace" <?php selected("'Lucida Console', Monaco, monospace", $options['fontFamily']); ?>>'Lucida Console', Monaco, monospace</option><option value="'MS Sans Serif', Geneva, sans-serif" <?php selected("'MS Sans Serif', Geneva, sans-serif", $options['fontFamily']); ?>>'MS Sans Serif', Geneva, sans-serif</option></select></p>
-	<p><?php _e("Title font size", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[titleFont]" value="<?php echo $options['titleFont'] ?>" size="3" />px</p>
-	<p><?php _e("Text font size", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[fontSize]" value="<?php echo $options['fontSize'] ?>" size="3" />px
-	&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/titletext.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /> </a></p>
-	<p><?php _e("Text color", 'vslider'); ?>:<input id="textColor" type="text" name="<?php echo $option; ?>[textColor]" value="<?php echo $options['textColor'] ?>" size="8" />&nbsp;HEX</p>
-	<small><?php _e("Click on the text box to pick a color", 'vslider'); ?></small>
-	<p><?php _e("Background color", 'vslider'); ?>:<input id="bgColor" type="text" name="<?php echo $option; ?>[bgColor]" value="<?php echo $options['bgColor'] ?>" size="8" />&nbsp;HEX</p>
-	<small><?php _e("To select color click on Tick at the right bottom of the color panel", 'vslider'); ?></small>
-	<p><input type="submit" class="button" value="<?php _e('Save Settings') ?>" /></p>
-
+				<p><?php _e("Image width", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[width]" value="<?php echo $options['width'] ?>" size="3" />px&nbsp;&nbsp;<?php _e("height", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[height]" value="<?php echo $options['height'] ?>" size="3" />px</p>
+				<p><?php _e("Squares per width", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[spw]" value="<?php echo $options['spw'] ?>" size="3" />&nbsp;&nbsp;<?php _e("per height", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[sph]" value="<?php echo $options['sph'] ?>" size="3" /></p>
+				<p><?php _e("Delay between images", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[delay]" value="<?php echo $options['delay'] ?>" size="3" />&nbsp;in ms</p>
+				<p><?php _e("Delay between squares", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[sDelay]" value="<?php echo $options['sDelay'] ?>" size="3" />&nbsp;in ms</p>
+				<p><?php _e("Opacity of title and navigation", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[opacity]" value="<?php echo $options['opacity'] ?>" size="3" /></p>
+				<p><?php _e("Speed of title appearance", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[titleSpeed]" value="<?php echo $options['titleSpeed'] ?>" size="3" />&nbsp;in ms</p>
+				<p><?php _e("Effect", 'vslider'); ?>:
+					<select name="<?php echo $option; ?>[effect]">
+						<option value="" <?php selected('', $options['effect']); ?>>all combined</option>
+						<option value="random" <?php selected('random', $options['effect']); ?>>Random</option>
+						<option value="swirl" <?php selected('swirl', $options['effect']); ?>>Swirl</option>
+						<option value="rain" <?php selected('rain', $options['effect']); ?>>rain</option>
+						<option value="fade" <?php selected('fade', $options['effect']); ?>>Fade</option>
+						<option value="vertical" <?php selected('vertical', $options['effect']); ?>>Curtain</option>
+						<option value="altvertical" <?php selected('altvertical', $options['effect']); ?>>Alternate Curtain</option>
+						<option value="horizontal" <?php selected('horizontal', $options['effect']); ?>>Winding</option>
+						<option value="althorizontal" <?php selected('althorizontal', $options['effect']); ?>>Alternate Winding</option>
+						<option value="diagonal" <?php selected('diagonal', $options['effect']); ?>>Diagonal</option>
+					</select>&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/vslider-effects.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /></a></p>
+				<p><?php _e("Show navigation buttons", 'vslider'); ?>:
+					<select name="<?php echo $option; ?>[navigation]">
+						<option value="true" <?php selected('true', $options['navigation']); ?>>Yes</option>
+						<option value="false" <?php selected('false', $options['navigation']); ?>>No</option>
+					</select>&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/navigationbuttons.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /></a></p>
+				<p><?php _e("Sticky navigation buttons", 'vslider'); ?>:
+					<select name="<?php echo $option; ?>[stickynav]">
+						<option value="true" <?php selected('true', $options['stickynav']); ?>>Yes</option>
+						<option value="false" <?php selected('false', $options['stickynav']); ?>>No</option>
+					</select>
+				<p><?php _e("Show images as links ", 'vslider'); ?>:
+					<select name="<?php echo $option; ?>[links]">
+						<option value="true" <?php selected('true', $options['links']); ?>>Yes</option>
+						<option value="false" <?php selected('false', $options['links']); ?>>No</option>
+					</select></p>
+				<p><?php _e("Show image buttons ", 'vslider'); ?>:
+					<select name="<?php echo $option; ?>[buttons]">
+						<option value="true" <?php selected('true', $options['buttons']); ?>>Yes</option>
+						<option value="false" <?php selected('false', $options['buttons']); ?>>No</option>
+					</select>&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/imagebuttons.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /></a></p>
+				<p><?php _e("Pause on mouse hover", 'vslider'); ?>:
+					<select name="<?php echo $option; ?>[hoverPause]">
+						<option value="true" <?php selected('true', $options['hoverPause']); ?>>Yes</option>
+						<option value="0" <?php selected('0', $options['hoverPause']); ?>>No</option>
+					</select></p>
+				<p><?php _e("Border Width", 'vslider'); ?>: <input type="text" name="<?php echo $option; ?>[borderWidth]" value="<?php echo $options['borderWidth'] ?>" size="3" />px &nbsp;&nbsp;<?php _e("Border Radius", 'vslider'); ?>: <input type="text" name="<?php echo $option; ?>[borderRadius]" value="<?php echo $options['borderRadius'] ?>" size="3" />px</p>
+				<p><?php _e("Border Color", 'vslider'); ?>:<input id="borderColor" type="text" name="<?php echo $option; ?>[borderColor]" value="<?php echo $options['borderColor'] ?>" size="8" />&nbsp;HEX&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/border.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /> </a></p>
+				<p><?php _e("Font family", 'vslider'); ?>:
+					<select name="<?php echo $option; ?>[fontFamily]">
+						<option value="Arial, Helvetica, sans-serif" <?php selected('Arial, Helvetica, sans-serif', $options['fontFamily']); ?>>Arial, Helvetica, sans-serif</option>
+						<option value="'Trebuchet MS', Helvetica, sans-serif" <?php selected("'Trebuchet MS', Helvetica, sans-serif", $options['fontFamily']); ?>>'Trebuchet MS', Helvetica, sans-serif</option>
+						<option value="Tahoma, Geneva, sans-serif" <?php selected('Tahoma, Geneva, sans-serif', $options['fontFamily']); ?>>Tahoma, Geneva, sans-serif</option>
+						<option value="Verdana, Geneva, sans-serif" <?php selected('Verdana, Geneva, sans-serif', $options['fontFamily']); ?>>Verdana, Geneva, sans-serif</option>
+						<option value="Georgia, serif" <?php selected('Georgia, serif', $options['fontFamily']); ?>>Georgia, serif</option>
+						<option value="'Arial Black', Gadget, sans-serif" <?php selected("'Arial Black', Gadget, sans-serif", $options['fontFamily']); ?>>'Arial Black', Gadget, sans-serif</option>
+						<option value="'Bookman Old Style', serif" <?php selected("'Bookman Old Style', serif", $options['fontFamily']); ?>>'Bookman Old Style', serif</option>
+						<option value="'Comic Sans MS', cursive" <?php selected("'Comic Sans MS', cursive", $options['fontFamily']); ?>>'Comic Sans MS', cursive</option>
+						<option value="'Courier New', Courier, monospace" <?php selected("'Courier New', Courier, monospace", $options['fontFamily']); ?>>'Courier New', Courier, monospace</option><option value="Garamond, serif" <?php selected("Garamond, serif", $options['fontFamily']); ?>>Garamond, serif</option>
+						<option value="'Times New Roman', Times, serif" <?php selected("'Times New Roman', Times, serif", $options['fontFamily']); ?>>'Times New Roman', Times, serif</option>
+						<option value="Impact, Charcoal, sans-serif" <?php selected("Impact, Charcoal, sans-serif", $options['fontFamily']); ?>>Impact, Charcoal, sans-serif</option>
+						<option value="'Lucida Console', Monaco, monospace" <?php selected("'Lucida Console', Monaco, monospace", $options['fontFamily']); ?>>'Lucida Console', Monaco, monospace</option>
+						<option value="'MS Sans Serif', Geneva, sans-serif" <?php selected("'MS Sans Serif', Geneva, sans-serif", $options['fontFamily']); ?>>'MS Sans Serif', Geneva, sans-serif</option>
+					</select></p>
+				<p><?php _e("Title font size", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[titleFont]" value="<?php echo $options['titleFont'] ?>" size="3" />px</p>
+				<p><?php _e("Text font size", 'vslider'); ?>:<input type="text" name="<?php echo $option; ?>[fontSize]" value="<?php echo $options['fontSize'] ?>" size="3" />px&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/titletext.png' /></span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /> </a></p>
+				<p><?php _e("Text color", 'vslider'); ?>:<input id="textColor" type="text" name="<?php echo $option; ?>[textColor]" value="<?php echo $options['textColor'] ?>" size="8" />&nbsp;HEX<br />
+				<small><?php _e("Click on the text box to pick a color, click checkmark to save", 'vslider'); ?></small></p>
+				<p><?php _e("Background color", 'vslider'); ?>:<input id="bgColor" type="text" name="<?php echo $option; ?>[bgColor]" value="<?php echo $options['bgColor'] ?>" size="8" />&nbsp;HEX<br />
+				<small><?php _e("Click on the text box to pick a color, click checkmark to save", 'vslider'); ?></small></p>
+				<p><input type="submit" class="button" value="<?php _e('Save Settings') ?>" /></p>
 			</div>
 		</div>
 	</div>
 
 	<div class="metabox-holder" style="width: 450px;float:right;margin-bottom:-10px;">
- <div class="postbox">	
-		<h3><?php _e("More vSlider Settings", 'vslider'); ?> <div class="click" id="moreeffects" style="float:right;cursor:pointer;"><?php _e("(+/-)", 'vslider'); ?></div></h3>
+		<div class="postbox">	
+			<h3><?php _e("More vSlider Settings", 'vslider'); ?> <div class="click" id="moreeffects" style="float:right;cursor:pointer;"><?php _e("(+/-)", 'vslider'); ?></div></h3>
 			<div class="inside" style="padding: 10px;display:none;" id="boxmoreeffects"> 
- <p><?php _e("Image Button Style", 'vslider'); ?>:<select name="<?php echo $option; ?>[navstyle]" id="navstyle">
-	<option value="none" <?php selected('none', $options['navstyle']); ?>>None</option>
-	<option value="nav_small" <?php selected('nav_small', $options['navstyle']); ?>>Small Buttons</option>
-	<option value="nav_style1" <?php selected('nav_style1', $options['navstyle']); ?>>Style 1</option>
-	<option value="nav_style2" <?php selected('nav_style2', $options['navstyle']); ?>>Style 2</option>
-	<option value="nav_style3" <?php selected('nav_style3', $options['navstyle']); ?>>Style 3</option>
-	<option value="nav_style4" <?php selected('nav_style4', $options['navstyle']); ?>>Style 4</option>
-	<option value="nav_style5" <?php selected('nav_style5', $options['navstyle']); ?>>Style 5</option>
-	</select>
-	&nbsp;&nbsp;<?php _e("Vertical Buttons", 'vslider'); ?>: <input type="checkbox" name="<?php echo $option; ?>[vnavenable]" value="1" <?php if($options['vnavenable']){ echo "checked=CHECKED"; } ?> />
-	</p>
- <p><?php _e("Navigation Button Style", 'vslider'); ?>:<select name="<?php echo $option; ?>[arrstyle]" id="navstyle">
-	<option value="none" <?php selected('none', $options['navstyle']); ?>>None</option>
-	<option value="arr_style1" <?php selected('arr_style1', $options['arrstyle']); ?>>Style 1</option>
-	<option value="arr_style2" <?php selected('arr_style2', $options['arrstyle']); ?>>Style 2</option>
-	<option value="arr_style3" <?php selected('arr_style3', $options['arrstyle']); ?>>Style 3</option>
-	</select>
-	</p>
- <p>
-	<?php _e("Image buttons placement", 'vslider'); ?>: <input type="text" name="<?php echo $option; ?>[navplace]" size="30" id="navplace"	value="<?php echo $options['navplace']; ?>"/>
-	&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/btnplacement.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /></a>
-	<br /><small>Order of Spacing(margin): TOPpx RIGHTpx BOTTOMpx LEFTpx</small>
-	</p>	
-	<p>
-	<?php _e("Enable Auto-Resizing", 'vslider'); ?>: <input type="checkbox" name="<?php echo $option; ?>[timthumb]" value="0" <?php if($options['timthumb']){ echo "checked=CHECKED"; } ?> />
-	&nbsp;&nbsp;<?php _e("Image Quality", 'vslider'); ?>:<select name="<?php echo $option; ?>[quality]">
-	<option value="40" <?php selected('40', $options['quality']); ?>>40%</option>
-	<option value="50" <?php selected('50', $options['quality']); ?>>50%</option>
-	<option value="60" <?php selected('60', $options['quality']); ?>>60%</option>
-	<option value="70" <?php selected('70', $options['quality']); ?>>70%</option>
-	<option value="80" <?php selected('80', $options['quality']); ?>>80%</option>
-	<option value="90" <?php selected('90', $options['quality']); ?>>90%</option>
-	<option value="100" <?php selected('100', $options['quality']); ?>>100%</option>
-	</select>
-	</p> 
-	<p><?php _e("Slide Layout", 'vslider'); ?>:<select name="<?php echo $option; ?>[layout]" id="layout">
-	<option value="stripe-left" <?php selected('stripe-left', $options['layout']); ?>>Stripe Left</option>
-	<option value="stripe-right" <?php selected('stripe-right', $options['layout']); ?>>Stripe Right</option>
-	<option value="stripe-bottom" <?php selected('stripe-bottom', $options['layout']); ?>>Stripe Bottom</option>
-	<option value="stripe-top" <?php selected('stripe-top', $options['layout']); ?>>Stripe Top</option>
-	</select>
-	&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/layout.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /> </a>
-	</p> 
-	<p>
-	<?php _e("Container Margin", 'vslider'); ?>: <input type="text" name="<?php echo $option; ?>[holdermar]" size="30" id="holdermar" value="<?php echo $options['holdermar']; ?>"/>
-	&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/cntnerspcing.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /></a>
-	<br /><small>Order of Spacing(margin): TOPpx RIGHTpx BOTTOMpx LEFTpx</small>
-	</p> 
- <p>
-	<?php _e("Container Float", 'vslider'); ?>: <select name="<?php echo $option; ?>[holderfloat]" id="holderfloat">
-	<option value="none" <?php selected('none', $options['holderfloat']); ?>>None</option>
-	<option value="left" <?php selected('left', $options['holderfloat']); ?>>Left</option>
-	<option value="right" <?php selected('right', $options['holderfloat']); ?>>Right</option>
-	</select>
-	&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/float.png' /></span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /></a>
-	</p> 
-	<p><input type="submit" class="button" value="<?php _e('Save Settings') ?>" /></p>
+				<p><?php _e("Image Button Style", 'vslider'); ?>:
+					<select name="<?php echo $option; ?>[navstyle]" id="navstyle">
+						<option value="none" <?php selected('none', $options['navstyle']); ?>>None</option>
+						<option value="nav_small" <?php selected('nav_small', $options['navstyle']); ?>>Small Buttons</option>
+						<option value="nav_style1" <?php selected('nav_style1', $options['navstyle']); ?>>Style 1</option>
+						<option value="nav_style2" <?php selected('nav_style2', $options['navstyle']); ?>>Style 2</option>
+						<option value="nav_style3" <?php selected('nav_style3', $options['navstyle']); ?>>Style 3</option>
+						<option value="nav_style4" <?php selected('nav_style4', $options['navstyle']); ?>>Style 4</option>
+						<option value="nav_style5" <?php selected('nav_style5', $options['navstyle']); ?>>Style 5</option>
+					</select>&nbsp;&nbsp;<?php _e("Vertical Buttons", 'vslider'); ?>: <input type="checkbox" name="<?php echo $option; ?>[vnavenable]" value="1" <?php if($options['vnavenable']){ echo "checked=CHECKED"; } ?> /></p>
+				<p><?php _e("Navigation Button Style", 'vslider'); ?>:
+					<select name="<?php echo $option; ?>[arrstyle]" id="navstyle">
+						<option value="none" <?php selected('none', $options['navstyle']); ?>>None</option>
+						<option value="arr_style1" <?php selected('arr_style1', $options['arrstyle']); ?>>Style 1</option>
+						<option value="arr_style2" <?php selected('arr_style2', $options['arrstyle']); ?>>Style 2</option>
+						<option value="arr_style3" <?php selected('arr_style3', $options['arrstyle']); ?>>Style 3</option>
+					</select>
+				</p>
+				<p><?php _e("Image buttons placement", 'vslider'); ?>: <input type="text" name="<?php echo $option; ?>[navplace]" size="30" id="navplace"	value="<?php echo $options['navplace']; ?>"/>&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/btnplacement.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /></a><br />
+				<small>Order of Spacing(margin): TOPpx RIGHTpx BOTTOMpx LEFTpx</small></p>	
+				<p><?php _e("Enable Auto-Resizing", 'vslider'); ?>: <input type="checkbox" name="<?php echo $option; ?>[timthumb]" value="0" <?php if($options['timthumb']){ echo "checked=CHECKED"; } ?> />&nbsp;&nbsp;<?php _e("Image Quality", 'vslider'); ?>:
+					<select name="<?php echo $option; ?>[quality]">
+						<option value="40" <?php selected('40', $options['quality']); ?>>40%</option>
+						<option value="50" <?php selected('50', $options['quality']); ?>>50%</option>
+						<option value="60" <?php selected('60', $options['quality']); ?>>60%</option>
+						<option value="70" <?php selected('70', $options['quality']); ?>>70%</option>
+						<option value="80" <?php selected('80', $options['quality']); ?>>80%</option>
+						<option value="90" <?php selected('90', $options['quality']); ?>>90%</option>
+						<option value="100" <?php selected('100', $options['quality']); ?>>100%</option>
+					</select>
+				</p> 
+				<p><?php _e("Slide Layout", 'vslider'); ?>:
+					<select name="<?php echo $option; ?>[layout]" id="layout">
+						<option value="stripe-left" <?php selected('stripe-left', $options['layout']); ?>>Stripe Left</option>
+						<option value="stripe-right" <?php selected('stripe-right', $options['layout']); ?>>Stripe Right</option>
+						<option value="stripe-bottom" <?php selected('stripe-bottom', $options['layout']); ?>>Stripe Bottom</option>
+						<option value="stripe-top" <?php selected('stripe-top', $options['layout']); ?>>Stripe Top</option>
+					</select>&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/layout.png' /></span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /></a></p> 
+				<p><?php _e("Container Margin", 'vslider'); ?>: <input type="text" name="<?php echo $option; ?>[holdermar]" size="30" id="holdermar" value="<?php echo $options['holdermar']; ?>"/>&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/cntnerspcing.png' /></span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /></a><br />
+				<small>Order of Spacing(margin): TOPpx RIGHTpx BOTTOMpx LEFTpx</small></p> 
+				<p><?php _e("Container Float", 'vslider'); ?>: 
+					<select name="<?php echo $option; ?>[holderfloat]" id="holderfloat">
+						<option value="none" <?php selected('none', $options['holderfloat']); ?>>None</option>
+						<option value="left" <?php selected('left', $options['holderfloat']); ?>>Left</option>
+						<option value="right" <?php selected('right', $options['holderfloat']); ?>>Right</option>
+					</select>&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/float.png' /></span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /></a></p> 
+				<p><input type="submit" class="button" value="<?php _e('Save Settings') ?>" /></p>
+			</div>
+		</div>	
 	</div>
-	
-	</div>	
- </div>
 	<div class="metabox-holder" style="width: 450px;float:right;margin-bottom:-10px;">	
 		<div class="postbox">
-		<h3><?php _e("Images Source", 'vslider'); ?> </h3>
+		<h3><?php _e("Images Source", 'vslider'); ?></h3>
 			<div class="inside" style="padding: 10px;" id="boximgsrc">
-
-	<p><?php _e(" Image Source", 'vslider'); ?>?&nbsp;
-	<select name="<?php echo $option; ?>[customImg]">
-	<option value="true" <?php selected('true', $options['customImg']); ?>>Custom</option>
-	<option value="false" <?php selected('false', $options['customImg']); ?>>Category</option>
-	</select>&nbsp;				
-	<small><?php _e("Open image links in new window:", 'vslider'); ?></small>&nbsp;<input type="checkbox" name="<?php echo $option; ?>[target]" value="_blank" <?php if($options['target'] === '_blank'){ echo 'CHECKED';}; ?> />
- </p>
- <p> <?php _e("Category:", 'vslider'); ?>
-	<?php wp_dropdown_categories(array('selected' => $options['imgCat'], 'name' => $option.'[imgCat]', 'orderby' => 'Name' , 'hierarchical' => 1, 'show_option_all' => __("All Categories", 'vslider'), 'hide_empty' => '0' )); ?>
-	&nbsp;&nbsp;<?php _e("Grab Post Image:", 'vslider'); ?>
-	<select name="<?php echo $option; ?>[catchimage]">
-	<option value="featured" <?php selected('featured', $options['catchimage']); ?>>Featured</option>
-	<option value="first" <?php selected('first', $options['catchimage']); ?>>First</option>
-	</select>
-	</p>
-	<p><?php _e("Slides", 'vslider'); ?>:
-	<select name="<?php echo $option; ?>[slideNr]">
-	<?php for($s=1; $s<21; $s++){ ?>
-	<option value="<?php echo $s; ?>" <?php selected($s, $options['slideNr']); ?>><?php echo $s; ?></option>
-	<?php } ?>
-	</select>
-	<?php _e("Display post excerpt", 'vslider'); ?>?&nbsp;
-	<select name="<?php echo $option; ?>[excerpt]">
-	<option value="true" <?php selected('true', $options['excerpt']); ?>>Yes</option>
-	<option value="false" <?php selected('false', $options['excerpt']); ?>>No</option>
-	</select>&nbsp;
-	<?php _e("chars", 'vslider'); ?>:
-	<input type="text" name="<?php echo $option; ?>[chars]" value="<?php echo $options['chars'] ?>" size="3" />
-	</p>
-	<p><small><?php _e("Random Image Sequence:", 'vslider'); ?></small>&nbsp;<input type="checkbox" name="<?php echo $option; ?>[randimg]" value="_blank" <?php if($options['randimg'] === '_blank'){ echo 'CHECKED';}; ?> /></p>
-	<p><input type="submit" class="button" value="<?php _e('Save Settings') ?>" /></p>
-
+			<p><?php _e(" Image Source", 'vslider'); ?>?&nbsp;
+				<select name="<?php echo $option; ?>[customImg]">
+					<option value="true" <?php selected('true', $options['customImg']); ?>>Custom</option>
+					<option value="false" <?php selected('false', $options['customImg']); ?>>Category</option>
+				</select>&nbsp;<small><?php _e("Open image links in new window:", 'vslider'); ?></small>&nbsp;<input type="checkbox" name="<?php echo $option; ?>[target]" value="_blank" <?php if($options['target'] === '_blank'){ echo 'CHECKED';}; ?> /></p>
+			<p><?php _e("Category:", 'vslider'); ?><?php wp_dropdown_categories(array('selected' => $options['imgCat'], 'name' => $option.'[imgCat]', 'orderby' => 'Name' , 'hierarchical' => 1, 'show_option_all' => __("All Categories", 'vslider'), 'hide_empty' => '0' )); ?>&nbsp;&nbsp;<?php _e("Grab Post Image:", 'vslider'); ?>
+				<select name="<?php echo $option; ?>[catchimage]">
+					<option value="featured" <?php selected('featured', $options['catchimage']); ?>>Featured</option>
+					<option value="first" <?php selected('first', $options['catchimage']); ?>>First</option>
+				</select>
+			</p>
+			<p><?php _e("Slides", 'vslider'); ?>:
+				<select name="<?php echo $option; ?>[slideNr]">
+					<?php for($s=1; $s<21; $s++){ ?>
+					<option value="<?php echo $s; ?>" <?php selected($s, $options['slideNr']); ?>><?php echo $s; ?></option>
+					<?php } ?>
+				</select>
+				<?php _e("Display post excerpt", 'vslider'); ?>?&nbsp;
+				<select name="<?php echo $option; ?>[excerpt]">
+					<option value="true" <?php selected('true', $options['excerpt']); ?>>Yes</option>
+					<option value="false" <?php selected('false', $options['excerpt']); ?>>No</option>
+				</select>&nbsp;
+				<?php _e("chars", 'vslider'); ?>:
+				<input type="text" name="<?php echo $option; ?>[chars]" value="<?php echo $options['chars'] ?>" size="3" />
+			</p>
+			<p><small><?php _e("Random Image Sequence:", 'vslider'); ?></small>&nbsp;<input type="checkbox" name="<?php echo $option; ?>[randimg]" value="_blank" <?php if($options['randimg'] === '_blank'){ echo 'CHECKED';}; ?> /></p>
+			<p><input type="submit" class="button" value="<?php _e('Save Settings') ?>" /></p>
 			</div>
 		</div>
 	</div>
@@ -929,28 +950,24 @@ function vslider_admin_page() {
 		<div class="postbox">
 		<h3><?php _e("Custom Image", 'vslider'); ?> <?php echo $x; ?><div class="click" id="<?php echo $x; ?>" style="float:right;cursor:pointer;"><?php _e("(+/-)", 'vslider'); ?></div></h3>
 			<div class="inside" id="box<?php echo $x; ?>" style="padding: 10px;display:none;">
-
-	<p><?php _e("Image URL", 'vslider'); ?>: <small style="float:right;"><?php _e("upload", 'vslider'); ?></small><br />
-	<input id="slide<?php echo $x; ?>" type="text" name="<?php echo $option; ?>[slide<?php echo $x; ?>]" value="<?php echo $options['slide'.$x.''] ?>" size="45" />
-	<a href="media-upload.php?type=image&amp;TB_iframe=true" class="thickbox" onclick="current_image='slide<?php echo $x; ?>';"><img src='images/media-button-image.gif' alt='Add an Image' /></a><br />
-	<?php _e("Image links to", 'vslider'); ?>:<br />
-	<input type="text" name="<?php echo $option; ?>[link<?php echo $x; ?>]" value="<?php echo $options['link'.$x.''] ?>" size="45" /><br />
-				<?php _e("Heading text", 'vslider'); ?>:<br />
-	<input type="text" name="<?php echo $option; ?>[heading<?php echo $x; ?>]" value="<?php echo $options['heading'.$x.''] ?>" size="45" /><br />
-				<?php _e("Description text", 'vslider'); ?>:<br />
-	<textarea name="<?php echo $option; ?>[desc<?php echo $x; ?>]" cols="50" rows="3"><?php echo $options['desc'.$x.''] ?></textarea>
-	</p>
-	<p><input type="submit" class="button" value="<?php _e('Save Settings') ?>" /></p>
-
+			<p><?php _e("Image URL", 'vslider'); ?>: <small style="float:right;"><?php _e("upload", 'vslider'); ?></small><br />
+			<input id="slide<?php echo $x; ?>" type="text" name="<?php echo $option; ?>[slide<?php echo $x; ?>]" value="<?php echo $options['slide'.$x.''] ?>" size="45" />
+			<a href="media-upload.php?type=image&amp;TB_iframe=true" class="thickbox" onclick="current_image='slide<?php echo $x; ?>';"><img src='images/media-button-image.gif' alt='Add an Image' /></a><br />
+			<?php _e("Image links to", 'vslider'); ?>:<br />
+			<input type="text" name="<?php echo $option; ?>[link<?php echo $x; ?>]" value="<?php echo $options['link'.$x.''] ?>" size="45" /><br />
+			<?php _e("Heading text", 'vslider'); ?>:<br />
+			<input type="text" name="<?php echo $option; ?>[heading<?php echo $x; ?>]" value="<?php echo $options['heading'.$x.''] ?>" size="45" /><br />
+			<?php _e("Description text", 'vslider'); ?>:<br />
+			<textarea name="<?php echo $option; ?>[desc<?php echo $x; ?>]" cols="50" rows="3"><?php echo $options['desc'.$x.''] ?></textarea>
+			</p>
+			<p><input type="submit" class="button" value="<?php _e('Save Settings') ?>" /></p>
 			</div>
 		</div>
 	</div>
 	<?php } ?>
-
 <input type="hidden" name="action" value="update" />
 <input type="hidden" name="page_options" value="<?php echo $option; ?>" />
 </form>
-
 
 <form method="post" style="clear:both;">
 <input type="hidden" name="vslider-reset" value="1" />
@@ -967,27 +984,25 @@ function vslider_limitpost ($max_char, $more_link_text = '(more...)', $stripteas
 	$content = str_replace(']]>', ']]&gt;', $content);
 	$content = strip_tags($content);
 
- if (strlen($_GET['p']) > 0) {
-	echo $content;
-	echo "&nbsp;<a rel='nofollow' href='";
-	the_permalink();
-	echo "'>".__('Read More', 'vibe')." &rarr;</a>";
- }
- else if ((strlen($content)>$max_char) && ($espacio = strpos($content, " ", $max_char ))) {
-	$content = substr($content, 0, $espacio);
-	$content = $content;
-	echo $content;
-	echo "...";
-	echo "&nbsp;<a rel='nofollow' href='";
-	the_permalink();
-	echo "'>".$more_link_text."</a>";
- }
- else {
-	echo $content;
-	echo "&nbsp;<a rel='nofollow' href='";
-	the_permalink();
-	echo "'>".__('Read More', 'vibe')." &rarr;</a>";
- }
+	if (strlen($_GET['p']) > 0) {
+		echo $content;
+		echo "&nbsp;<a rel='nofollow' href='";
+		the_permalink();
+		echo "'>".__('Read More', 'vibe')." &rarr;</a>";
+	} else if ((strlen($content)>$max_char) && ($espacio = strpos($content, " ", $max_char ))) {
+		$content = substr($content, 0, $espacio);
+		$content = $content;
+		echo $content;
+		echo "...";
+		echo "&nbsp;<a rel='nofollow' href='";
+		the_permalink();
+		echo "'>".$more_link_text."</a>";
+	} else {
+		echo $content;
+		echo "&nbsp;<a rel='nofollow' href='";
+		the_permalink();
+		echo "'>".__('Read More', 'vibe')." &rarr;</a>";
+	}
 }
 
 // VSLIDER
@@ -1001,77 +1016,67 @@ function vslider($option='vslider_options'){
 	$table_name = $wpdb->prefix . "vslider"; 
 	$vslider_data = $wpdb->get_results("SELECT active FROM $table_name WHERE option_name='".$option."'");
 	foreach ($vslider_data as $data) { 
-	if($data->active == 1) {
-		vslider_head($option);
-	?>
-	<div id="<?php echo $option.'container'; ?>">
-	<?php
-	echo '<div id="'.$option.'">';
-	if($options['customImg'] == 'false') {
-	if($options['randimg']){$randimg="orderby=rand&";}//Randomise Images
-	$recent = new WP_Query($randimg."cat=".$options['imgCat']."&showposts=".$options['slideNr']); 
-	while($recent->have_posts()) : $recent->the_post(); ?>
-	<a href="<?php the_permalink(); ?>" target="<?php echo $options['target']; ?>">
-	<?php 
-	if($options['catchimage'] == 'featured'){ // CATCH THE FEATURED IMAGE OF THE POST
- if($options['timthumb'])	// get the src of the post thumbnail
-	{	
-	$src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 300,300 ), false, '' ); 
-	$thumbnailSrc = $src[0]; 
-	$img_url = WP_PLUGIN_URL.'/vslider/timthumb.php?src='.$thumbnailSrc.'&amp;w='.$options['width'].'&amp;h='.$options['height'].'&amp;zc=1&amp;q='.$options['quality'];
-	
-	?>
-	<img src="<?php echo $img_url; ?>" alt="" />
-	<?php } else {
-	the_post_thumbnail ( array($options['width'], $options['height']) );
-	}
-	}else if($options['catchimage'] == 'first'){
-	// CATCH THE FIRST IMAGE OF THE POST 
-	$iPostID = get_the_ID();
-	$content_post = get_post($iPostID);
-	$content = $content_post->post_content;
-	$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i',$content, $matches);
-	$firstsrc = $matches [1] [0];
-	if($options['timthumb'])	// get the src of the post thumbnail
-	{	$image = str_replace(get_bloginfo('siteurl'), '', $firstsrc); 
- $img_url = WP_PLUGIN_URL.'/vslider/timthumb.php?src='.urlencode($image).'&amp;w='.$options['width'].'&amp;h='.$options['height'].'&amp;zc=1&amp;q='.$options['quality'];
- }else {$img_url= $firstsrc;}
-	?>
-	<div style="background: url(<?php echo $img_url; ?>) no-repeat;<?php echo "width:".$options['width'].";height:".$options['height'].";"; ?>" alt="">
-	</div>
-	<?php	
-	}	
- if($options['excerpt'] == 'true') { ?>
-	<span><h4><?php the_title(); ?></h4><?php vslider_limitpost($options['chars'], "" ); ?></span>
-	<?php } ?>
-	</a>
-	<?php endwhile; //endwhile
-	} else {
-	//$slides = $options['slideNr'] + 1;
-	$randx = range(1, $options['slideNr']);
-	if($options['randimg']){	//RANDOMISING IMAGES
- shuffle($randx);
-	}//Randomise Images
-	
-	foreach( $randx as $x){ ?>
- <a href="<?php echo $options['link'.$x.'']; ?>" style="background:#fff;" target="<?php echo $options['target']; ?>">
- <?php 
- if($options['timthumb']){
- $image = str_replace(get_bloginfo('siteurl'), '', $options['slide'.$x.'']); 
- $img_url =WP_PLUGIN_URL.'/vslider/timthumb.php?src='.urlencode($image).'&amp;w='.$options['width'].'&amp;h='.$options['height'].'&amp;zc=1&amp;q='.$options['quality'];
- }else{
-	$img_url=$options['slide'.$x.''];
- }
- ?>
- <img src="<?php echo $img_url; ?>" style="width:<?php echo $options['width']; ?>px;height:<?php echo $options['height']; ?>px;" alt="<?php echo $options['heading'.$x.'']; ?>" />
- <?php if($options['heading'.$x.''] || $options['desc'.$x.'']) { ?>
- <span><h4><?php echo $options['heading'.$x.'']; ?></h4><?php echo $options['desc'.$x.'']; ?></span>
- <?php } ?>
- </a>
-	<?php }
-	}
-	echo '</div></div>';
- }//ENDIF
+		if($data->active == 1) {
+			vslider_head($option);
+		?><div id="<?php echo $option.'container'; ?>"><?php
+		echo '<div id="'.$option.'">';
+			if($options['customImg'] == 'false') {
+				if($options['randimg']){$randimg="orderby=rand&";}//Randomise Images
+				$recent = new WP_Query($randimg."cat=".$options['imgCat']."&showposts=".$options['slideNr']); 
+				while($recent->have_posts()) : $recent->the_post(); 
+				?><a href="<?php the_permalink(); ?>" target="<?php echo $options['target']; ?>"><?php 
+				if($options['catchimage'] == 'featured'){ // CATCH THE FEATURED IMAGE OF THE POST
+					if($options['timthumb']) {	// get the src of the post thumbnail
+						$src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 300,300 ), false, '' ); 
+						$thumbnailSrc = $src[0]; 
+						$img_url = WP_PLUGIN_URL.'/vslider/timthumb.php?src='.$thumbnailSrc.'&amp;w='.$options['width'].'&amp;h='.$options['height'].'&amp;zc=1&amp;q='.$options['quality'];
+						?>
+						<img src="<?php echo $img_url; ?>" alt="" />
+					<?php } else {
+						the_post_thumbnail ( array($options['width'], $options['height']) );
+					}
+				} else if($options['catchimage'] == 'first'){
+					// CATCH THE FIRST IMAGE OF THE POST 
+					$iPostID = get_the_ID();
+					$content_post = get_post($iPostID);
+					$content = $content_post->post_content;
+					$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i',$content, $matches);
+					$firstsrc = $matches [1] [0];
+					if($options['timthumb']) {	// get the src of the post thumbnail
+						$image = str_replace(get_bloginfo('siteurl'), '', $firstsrc); 
+						$img_url = WP_PLUGIN_URL.'/vslider/timthumb.php?src='.urlencode($image).'&amp;w='.$options['width'].'&amp;h='.$options['height'].'&amp;zc=1&amp;q='.$options['quality'];
+					} else {$img_url= $firstsrc;}
+				?><div style="background: url(<?php echo $img_url; ?>) no-repeat;<?php echo "width:".$options['width'].";height:".$options['height'].";"; ?>" alt=""></div><?php	
+				}	
+				if($options['excerpt'] == 'true') { ?>
+					<span><h4><?php the_title(); ?></h4><?php vslider_limitpost($options['chars'], "" ); ?></span>
+				<?php } ?>
+				</a>
+			<?php endwhile; //endwhile
+			} else {
+				//$slides = $options['slideNr'] + 1;
+				$randx = range(1, $options['slideNr']);
+				if($options['randimg']){	//RANDOMISING IMAGES
+					shuffle($randx);
+				}//Randomise Images
+				foreach( $randx as $x){ ?>
+					<a href="<?php echo $options['link'.$x.'']; ?>" style="background:#fff;" target="<?php echo $options['target']; ?>">
+					<?php 
+					if($options['timthumb']){
+						$image = str_replace(get_bloginfo('siteurl'), '', $options['slide'.$x.'']); 
+						$img_url = WP_PLUGIN_URL.'/vslider/timthumb.php?src='.urlencode($image).'&amp;w='.$options['width'].'&amp;h='.$options['height'].'&amp;zc=1&amp;q='.$options['quality'];
+					} else {
+						$img_url=$options['slide'.$x.''];
+					}
+				?><img src="<?php echo $img_url; ?>" style="width:<?php echo $options['width']; ?>px;height:<?php echo $options['height']; ?>px;" alt="<?php echo $options['heading'.$x.'']; ?>" />
+					<?php if($options['heading'.$x.''] || $options['desc'.$x.'']) { ?>
+						<span><h4><?php echo $options['heading'.$x.'']; ?></h4><?php echo $options['desc'.$x.'']; ?></span>
+					<?php } ?>
+					</a>
+				<?php }
+			}
+			echo '</div></div>';
+		}//ENDIF
 	}//END-FOR
 }//END FUNCTION VSLIDER
 
@@ -1086,8 +1091,6 @@ function vslider_short_code($atts) {
 	return $output;
 }
 add_shortcode('vslider', 'vslider_short_code');
-
-
 
 // REGISTER VSLIDER AS WIDGET
 add_action('widgets_init', create_function('', "register_widget('vslider_widget');"));
@@ -1109,42 +1112,43 @@ class vslider_widget extends WP_Widget {
 			if (!empty($instance['title']))
 				echo $before_title . $instance['title'] . $after_title;
 	
-	if (empty($instance['vslider']))
-	{
-	$instance['vslider']='vslider_options';
-	}
-	vslider ($instance['vslider']); //check
+		if (empty($instance['vslider'])) {
+			$instance['vslider']='vslider_options';
+		}
+	
+		vslider ($instance['vslider']); //check
 
-	echo $after_widget;
+		echo $after_widget;
 	}
 
 	function update($new_instance, $old_instance) {
- $instance=$old_instance;
-	/* Strip tags (if needed) and update the widget settings. */
+		$instance=$old_instance;
+		/* Strip tags (if needed) and update the widget settings. */
 		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['vslider'] = $new_instance['vslider'];
-	return $instance;
+		return $instance;
 	}
 
 	function form($instance) { ?>
 	
-		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e("Title"); ?>:</label>
-			<input id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" style="width:95%;" /></p>
-	<p><label><?php _e("vSlider Name"); ?>:</label>	<br />	
-	<select id="<?php echo $this->get_field_name('vslider'); ?>" name="<?php echo $this->get_field_name('vslider'); ?>">
-	<?php
- global $wpdb;$num=1;
-	$table_name = $wpdb->prefix . "vslider"; 
-	$vslider_data = $wpdb->get_results("SELECT * FROM $table_name where active=1 ORDER BY id");
-	foreach ($vslider_data as $data) { 
-	?>
-	<option value="<?php echo $data->option_name; ?>" <?php if ( $data->option_name == $instance['vslider'] ) echo 'selected="selected"'; ?>><?php echo $data->option_name; ?></option>
-	<?php 
-	}
-	?>
-	</select>
-	</p>
-
+		<p>
+		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e("Title"); ?>:</label>
+		<input id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" style="width:95%;" />
+		</p>
+		<p><label><?php _e("vSlider Name"); ?>:</label>	<br />	
+			<select id="<?php echo $this->get_field_name('vslider'); ?>" name="<?php echo $this->get_field_name('vslider'); ?>">
+			<?php
+			global $wpdb;$num=1;
+			$table_name = $wpdb->prefix . "vslider"; 
+			$vslider_data = $wpdb->get_results("SELECT * FROM $table_name where active=1 ORDER BY id");
+			foreach ($vslider_data as $data) { 
+			?>
+				<option value="<?php echo $data->option_name; ?>" <?php if ( $data->option_name == $instance['vslider'] ) echo 'selected="selected"'; ?>><?php echo $data->option_name; ?></option>
+			<?php 
+			}
+			?>
+			</select>
+		</p>
 	<?php
 	}
 }
