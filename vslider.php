@@ -36,7 +36,9 @@ function get_vsliders() {
 		<tr style="height:40px;">
 			<td style="width: 100px;text-align:center;padding: 10px;">$data->id</td>
 			<td style="width: 100px;text-align:center;padding: 10px;" valign="middle">$data->option_name</td>
-			<td style="width: 100px;text-align:center;padding: 10px;"><a href="?page=add-vSlider&amp;edit=$data->option_name" class="button" $disabled>Edit</a></td><td style="width: 100px;text-align:center;padding: 10px;">$active</td><td style="width: 100px;text-align:center;padding: 10px;">$delete</td>
+			<td style="width: 100px;text-align:center;padding: 10px;"><a href="?page=add-vSlider&amp;edit=$data->option_name" class="button" $disabled>Edit</a></td>
+			<td style="width: 100px;text-align:center;padding: 10px;">$active</td>
+			<td style="width: 100px;text-align:center;padding: 10px;">$delete</td>
 		</tr>
 SLIDERS;
 		$num++;
@@ -44,7 +46,7 @@ SLIDERS;
 		<form method="post" action="?page=vslider&add=1">
 		<tr style="height:60px;">
 			<td style="width: 100px;text-align:center;padding: 20px;"><?php echo ($data->id+1); ?></td>
-			<td style="padding: 20px;" colspan="2"><input type="text" id="option_name" name="option_name" size="70" />
+			<td style="padding: 20px;" colspan="2"><input type="text" id="option_name" name="option_name" size="30" />
 			<p style="font-size:11px; color: red;">* Do not use spaces, numbers or special characters in the name.</p>
 			</td>
 			<td style="width: 100px;text-align:center;padding: 20px;" colspan="2"><input type="submit" class="button-primary" style="padding: 0 30px;" value="Add new vSlider" /></td>
@@ -649,10 +651,10 @@ function vslider_plugin_admin_menu() {
 //vSlider main page
 function vslider_main() {
 	?>
-	<div class="wrap" style="width:820px;">
+	<div class="wrap" style="max-width: 600px;">
 		<div id="icon-options-general" class="icon32"><br /></div>
 		<h2>vSlider 4.1.2 Settings</h2>
-		<div class="metabox-holder" style="width: 820px; float:left;">
+		<div class="metabox-holder" style="float:left;">
 			<div class="inside"><br /></div>
 		</div>
 
@@ -764,7 +766,7 @@ function vslider_admin_page() {
 		$option = 'vslider_options';
 	}
 	?>
-	<div class="wrap" style="width:820px;"><div id="icon-options-general" class="icon32"><br /></div>
+	<div class="wrap" style="max-width: 800px;"><div id="icon-options-general" class="icon32"><br /></div>
 	<?php echo $message; ?>
 
 	<h2><?php _e("vSlider 4.1.2 Edit Options Page [ ".$option." ]"); ?></h2>
