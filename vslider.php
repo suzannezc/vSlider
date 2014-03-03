@@ -550,8 +550,9 @@ function vslider_install(){
 	$table_name = $wpdb->prefix . "vslider"; 
 		$sql = "CREATE TABLE IF NOT EXISTS " . $table_name . " (
 			id mediumint(9) NOT NULL AUTO_INCREMENT,
-			option_name VARCHAR(255) NOT NULL DEFAULT	'vslider_options',
-			active tinyint(1) NOT NULL DEFAULT	'0',
+			option_name VARCHAR(255) NOT NULL DEFAULT 'vslider_options',
+			active tinyint(1) NOT NULL DEFAULT '0',
+			option_value LONGTEXT NOT NULL,
 			PRIMARY KEY (`id`),
 			UNIQUE (`option_name`)
 			);";
