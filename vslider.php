@@ -775,6 +775,7 @@ function vslider_admin_page() {
 	<form method="post" action="options.php">
 
 	<?php // get the slider details from the wp_options database
+	// SZC change to wp_vslider database
 	wp_nonce_field('update-options'); 
 	$options = get_option($option); 
 	?>
@@ -1044,7 +1045,7 @@ function vslider($option='vslider_options'){
 					$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i',$content, $matches);
 					$firstsrc = $matches [1] [0];
 					if($options['timthumb']) {	// get the src of the post thumbnail
-						$image = str_replace(get_bloginfo('siteurl'), '', $firstsrc); 
+						$image = str_replace(get_bloginfo('url'), '', $firstsrc); 
 						$img_url = WP_PLUGIN_URL.'/vslider/timthumb.php?src='.urlencode($image).'&amp;w='.$options['width'].'&amp;h='.$options['height'].'&amp;zc=1&amp;q='.$options['quality'];
 					} else {$img_url= $firstsrc;}
 				?><div style="background: url(<?php echo $img_url; ?>) no-repeat;<?php echo "width:".$options['width'].";height:".$options['height'].";"; ?>" alt=""></div><?php	
@@ -1064,7 +1065,7 @@ function vslider($option='vslider_options'){
 					<a href="<?php echo $options['link'.$x.'']; ?>" style="background:#fff;" target="<?php echo $options['target']; ?>">
 					<?php 
 					if($options['timthumb']){
-						$image = str_replace(get_bloginfo('siteurl'), '', $options['slide'.$x.'']); 
+						$image = str_replace(get_bloginfo('url'), '', $options['slide'.$x.'']); 
 						$img_url = WP_PLUGIN_URL.'/vslider/timthumb.php?src='.urlencode($image).'&amp;w='.$options['width'].'&amp;h='.$options['height'].'&amp;zc=1&amp;q='.$options['quality'];
 					} else {
 						$img_url=$options['slide'.$x.''];
@@ -1081,7 +1082,7 @@ function vslider($option='vslider_options'){
 	}//END-FOR
 }//END FUNCTION VSLIDER
 
-// Add vSlider short code	use vslider as	[vslider name='vslider_options']
+// Add vSlider short code to use vslider as [vslider name='vslider_options']
 function vslider_short_code($atts) {
 	ob_start();
 	extract(shortcode_atts(array(
