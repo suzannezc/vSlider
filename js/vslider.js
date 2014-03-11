@@ -3,6 +3,8 @@
  * @version: 1.0 - (2010/04/04)
  * @requires jQuery v1.2.2 or later
  * @author Ivan Lazarevic
+ * @author Mr. Vibes
+ * @author Suzanne Carter, WRDSB
  * Examples and documentation at: http://workshop.rs/projects/coin-slider/
  
  * Licensed under MIT licence:
@@ -55,11 +57,11 @@
 				'height': params[el.id].height,
 				'position': 'relative',
 				'background-position': 'top left'
-			}).wrap("<div class='coin-slider' id='coin-slider-"+el.id+"' />");	
+			}).wrap('<div class="coin-slider" id="coin-slider-'+el.id+'" />');	
 			
 				
 			// create title bar
-			$('#'+el.id).append("<div class='cs-title' id='cs-title-"+el.id+"' style='position: absolute; bottom:0; left: 0; z-index: 1000;'></div>");
+			$('#'+el.id).append('<div class="cs-title" id="cs-title-'+el.id+'" style="position: absolute; bottom:0; left: 0; z-index: 1000;"></div>');
 						
 			if(params[el.id].effect =='fade'){
 			 params[el.id].spw=1;
@@ -107,9 +109,9 @@
 					counter++;
 					
 					if(params[el.id].links)
-						$('#'+el.id).append("<a href='"+links[el.id][0]+"' class='cs-"+el.id+"' id='cs-"+el.id+i+j+"' style='width:"+sWidth+"px; height:"+sHeight+"px; float: left; position: absolute;'></a>");
+						$('#'+el.id).append('<a href="'+links[el.id][0]+'" class="cs-'+el.id+'" id="cs-'+el.id+i+j+'" style="width:'+sWidth+'px; height:'+sHeight+'px; float: left; position: absolute;"></a>');
 					else
-						$('#'+el.id).append("<div class='cs-"+el.id+"' id='cs-"+el.id+i+j+"' style='width:"+sWidth+"px; height:"+sHeight+"px; float: left; position: absolute;'></div>");
+						$('#'+el.id).append('<div class="cs-'+el.id+'" id="cs-'+el.id+i+j+'" style="width:'+sWidth+'px; height:'+sHeight+'px; float: left; position: absolute;"></div>');
 								
 					// positioning squares
 					$("#cs-"+el.id+i+j).css({ 
@@ -245,13 +247,16 @@
 		// navigation
 		$.setNavigation = function(el){
 			// create prev and next 
-			$(el).append("<div id='cs-navigation-"+el.id+"'></div>");
-			if(params[el.id].stickynav){  	$('#cs-navigation-'+el.id).show();}
-            else{
-            $('#cs-navigation-'+el.id).hide();}
-			
-			$('#cs-navigation-'+el.id).append("<a href='#' id='cs-prev-"+el.id+"' class='cs-prev'>&lt;</a>");
-			$('#cs-navigation-'+el.id).append("<a href='#' id='cs-next-"+el.id+"' class='cs-next'>&gt;</a>");
+			$(el).append('<div id="cs-navigation-'+el.id+'"></div>');
+
+			if(params[el.id].stickynav){  	
+				$('#cs-navigation-'+el.id).show();
+			} else {
+				$('#cs-navigation-'+el.id).hide();
+			}
+
+			$('#cs-navigation-'+el.id).append('<a href="#" id="cs-prev-'+el.id+'" class="cs-prev">&lt;</a>');
+			$('#cs-navigation-'+el.id).append('<a href="#" id="cs-next-'+el.id+'" class="cs-next">&gt;</a>');
 			$('#cs-prev-'+el.id).css({
 				'position' 	: 'absolute',
 				'top'		: params[el.id].height/2 - 15,
@@ -576,9 +581,9 @@
 		spw: 7, // squares per width
 		sph: 5, // squares per height
 		delay: 3000, // delay between images in ms
-		sDelay: 30, // delay beetwen squares in ms
+		sDelay: 30, // delay between squares in ms
 		opacity: 0.5, // opacity of title and navigation
-		titleSpeed: 500, // speed of title appereance in ms
+		titleSpeed: 500, // speed of title appearance in ms
 		effect: '', // random, swirl, rain, straight
 		navigation: true, // prev next and buttons
 		links : true, // show images as links
