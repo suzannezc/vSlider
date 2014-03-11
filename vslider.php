@@ -601,8 +601,8 @@ function vslider_uninstall(){
 		</table>
 
 		<p style="text-align: center;"><?php _e('Do you really want to uninstall vSlider?', 'vslider'); ?><br /><br />
-		<input type="checkbox" name="uninstall_vslider" value="yes" />&nbsp;<?php _e('Yes', 'vslider'); ?><br /><br />
-		<input type="submit" name="uninstallvslider" value="<?php _e('UNINSTALL vSlider', 'vslider'); ?>" class="button-primary" onclick="return confirm('<?php _e('You Are About To Uninstall vSlider From WordPress.\nThis Action Is Not Reversible.\n\n Choose [Cancel] To Stop, [OK] To Uninstall.', 'vslider'); ?>')" /></p>
+		<input type="checkbox" name="uninstall_vslider" value="yes" /> <?php _e('Yes', 'vslider'); ?><br /><br />
+		<input type="submit" name="uninstallvslider" value="<?php _e('UNINSTALL vSlider', 'vslider'); ?>" class="button-primary" onclick="return confirm('<?php _e('You are about to <strong>uninstall</strong> the vSlider plugin.\nThis action is not reversible.\n\nChoose [Cancel] to stop, [OK] To uninstall.', 'vslider'); ?>')" /></p>
 	</div>
 </form>
 	<?php	
@@ -775,7 +775,6 @@ function vslider_admin_page() {
 	<form method="post" action="options.php">
 
 	<?php // get the slider details from the wp_options database
-	// SZC change to wp_vslider database
 	wp_nonce_field('update-options'); 
 	$options = get_option($option); 
 	?>
@@ -879,7 +878,7 @@ function vslider_admin_page() {
 						<option value="arr_style3" <?php selected('arr_style3', $options['arrstyle']); ?>>Style 3</option>
 					</select>
 				</p>
-				<p><?php _e("Image buttons placement", 'vslider'); ?>: <input type="text" name="<?php echo $option; ?>[navplace]" size="30" id="navplace"	value="<?php echo $options['navplace']; ?>"/>&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/btnplacement.png' /> </span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /></a><br />
+				<p><?php _e("Image buttons placement", 'vslider'); ?>: <input type="text" name="<?php echo $option; ?>[navplace]" size="20" id="navplace"	value="<?php echo $options['navplace']; ?>"/>&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src="<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/btnplacement.png" />&nbsp;</span><img src="<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png" /></a><br />
 				<small>Order of Spacing(margin): TOPpx RIGHTpx BOTTOMpx LEFTpx</small></p>	
 				<p><?php _e("Enable Auto-Resizing", 'vslider'); ?>: <input type="checkbox" name="<?php echo $option; ?>[timthumb]" value="0" <?php if($options['timthumb']){ echo "checked=CHECKED"; } ?> />&nbsp;&nbsp;<?php _e("Image Quality", 'vslider'); ?>:
 					<select name="<?php echo $option; ?>[quality]">
@@ -898,15 +897,15 @@ function vslider_admin_page() {
 						<option value="stripe-right" <?php selected('stripe-right', $options['layout']); ?>>Stripe Right</option>
 						<option value="stripe-bottom" <?php selected('stripe-bottom', $options['layout']); ?>>Stripe Bottom</option>
 						<option value="stripe-top" <?php selected('stripe-top', $options['layout']); ?>>Stripe Top</option>
-					</select>&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/layout.png' /></span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /></a></p> 
-				<p><?php _e("Container Margin", 'vslider'); ?>: <input type="text" name="<?php echo $option; ?>[holdermar]" size="30" id="holdermar" value="<?php echo $options['holdermar']; ?>"/>&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/cntnerspcing.png' /></span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /></a><br />
+					</select>&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src="<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/layout.png" /></span><img src="<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png" /></a></p> 
+				<p><?php _e("Container Margin", 'vslider'); ?>: <input type="text" name="<?php echo $option; ?>[holdermar]" size="30" id="holdermar" value="<?php echo $options['holdermar']; ?>"/>&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src="<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/cntnerspcing.png" /></span><img src="<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png" /></a><br />
 				<small>Order of Spacing(margin): TOPpx RIGHTpx BOTTOMpx LEFTpx</small></p> 
 				<p><?php _e("Container Float", 'vslider'); ?>: 
 					<select name="<?php echo $option; ?>[holderfloat]" id="holderfloat">
 						<option value="none" <?php selected('none', $options['holderfloat']); ?>>None</option>
 						<option value="left" <?php selected('left', $options['holderfloat']); ?>>Left</option>
 						<option value="right" <?php selected('right', $options['holderfloat']); ?>>Right</option>
-					</select>&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/float.png' /></span><img src='<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png' /></a></p> 
+					</select>&nbsp;&nbsp;<a href="#" class="tooltip"><span><img src="<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/float.png" /></span><img src="<?php echo WP_CONTENT_URL;?>/plugins/vslider/images/tooltip.png" /></a></p> 
 				<p><input type="submit" class="button" value="<?php _e('Save Settings') ?>" /></p>
 			</div>
 		</div>	
@@ -915,11 +914,11 @@ function vslider_admin_page() {
 		<div class="postbox">
 		<h3><?php _e("Images Source", 'vslider'); ?></h3>
 			<div class="inside" style="padding: 10px;" id="boximgsrc">
-			<p><?php _e(" Image Source", 'vslider'); ?>?&nbsp;
+			<p><?php _e("Image Source", 'vslider'); ?> 
 				<select name="<?php echo $option; ?>[customImg]">
 					<option value="true" <?php selected('true', $options['customImg']); ?>>Custom</option>
 					<option value="false" <?php selected('false', $options['customImg']); ?>>Category</option>
-				</select>&nbsp;<small><?php _e("Open image links in new window:", 'vslider'); ?></small>&nbsp;<input type="checkbox" name="<?php echo $option; ?>[target]" value="_blank" <?php if($options['target'] === '_blank'){ echo 'CHECKED';}; ?> /></p>
+				</select> <small><?php _e("Open links in new window:", 'vslider'); ?></small> <input type="checkbox" name="<?php echo $option; ?>[target]" value="_blank" <?php if($options['target'] === '_blank'){ echo 'CHECKED';}; ?> /></p>
 			<p><?php _e("Category:", 'vslider'); ?><?php wp_dropdown_categories(array('selected' => $options['imgCat'], 'name' => $option.'[imgCat]', 'orderby' => 'Name' , 'hierarchical' => 1, 'show_option_all' => __("All Categories", 'vslider'), 'hide_empty' => '0' )); ?>&nbsp;&nbsp;<?php _e("Grab Post Image:", 'vslider'); ?>
 				<select name="<?php echo $option; ?>[catchimage]">
 					<option value="featured" <?php selected('featured', $options['catchimage']); ?>>Featured</option>
